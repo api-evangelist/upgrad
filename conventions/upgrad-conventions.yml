@@ -1,0 +1,139 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/upgrad-partner-openapi.yml, openapi/upgrad-learner-analytics-openapi.yml
+summary: 'Cross-cutting semantics derived from the two published springdoc contracts. Both are framework-generated
+  Spring Boot documents rather than authored API contracts, which is visible in every dimension below: no idempotency
+  contract, no request-id header, no versioning scheme, and Spring Data internals (Pageable, QueryDSL Predicate)
+  leaked into the wire contract as opaque query parameters.'
+authentication:
+  style: api-key header (Partner Service) / bearer JWT (Learner Analytics)
+  partner: AUTH-TOKEN header, applied globally via a top-level security requirement
+  learner_analytics: 'Authorization: Bearer <JWT> declared as a scheme but NOT applied by any security requirement'
+  artifact: authentication/upgrad-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: No Idempotency-Key header, parameter or documented retry contract appears in either spec, and 26 of the
+    54 Partner Service operations are unsafe writes (POST/PUT/DELETE). A retried partner-document upload, prospect
+    save or commission-rule write has no defined dedupe behaviour. No Idempotency pointer is emitted.
+pagination:
+  style: framework-native, two incompatible styles across the estate
+  partner:
+    param: pageable
+    in: query
+    required: true
+    note: Spring Data Pageable serialised as a single opaque query object on 8 operations; the spec does not document
+      page/size/sort sub-parameters
+  learner_analytics:
+    params:
+    - pageNumber
+    - pageSize
+    in: query
+    required: false
+  response_fields: null
+  note: No documented pagination envelope, cursor or total-count field in either contract
+filtering:
+  partner:
+    param: predicate
+    in: query
+    required: true
+    note: QueryDSL Predicate exposed on 6 operations as an opaque query object - a consumer cannot tell which fields
+      are filterable from the contract
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  request_id_header: null
+  supported: false
+  note: No X-Request-Id / correlation header is declared or returned in either contract
+versioning:
+  scheme: none-in-path
+  note: Neither service versions its URI paths. The Partner Service declares info.version "1" and Learner Analytics
+    "1.0.0"; there is no version header, date-train or /v1 prefix, so there is no way for a consumer to pin a version.
+error_envelope:
+  shape: ErrorContext (vendor)
+  rfc9457: false
+  media_type: '*/*'
+  artifact: errors/upgrad-problem-types.yml
+rate_limit_signaling:
+  headers_documented: []
+  exhaustion_status: 429
+  note: 429 is declared on all 54 Partner Service operations but no RateLimit-* / X-RateLimit-* / Retry-After header
+    is documented
+  artifact: rate-limits/upgrad-rate-limits.yml
+media_types:
+  note: Every request and response in both contracts is typed */* rather than application/json - the framework default,
+    and it means content negotiation is undefined
+reversibility:
+  grade: none
+  dimension: reversibility (0.12.0)
+  read_only: false
+  summary: The Partner Service has a real write surface - 26 unsafe operations including three hard DELETEs - and
+    publishes NO reversal operation and NO reversal window for any of them. Nothing in either contract or in any
+    public upGrad documentation states how, or whether, a write can be taken back.
+  write_surfaces:
+  - surface: store
+    writes:
+    - saveStoreDetail
+    - updateStoreDetail
+    - deleteStoreDetail
+    reversal_operation: null
+    window: null
+    note: deleteStoreDetail is a hard delete with no restore/undelete operation and no stated retention window
+  - surface: partner co-owner
+    writes:
+    - deleteCoOwner
+    reversal_operation: null
+    window: null
+    note: hard delete, no restore operation
+  - surface: program key cache
+    writes:
+    - updateProgramKeyCache
+    - deleteProgramKey
+    reversal_operation: null
+    window: null
+    note: cache eviction; re-populated by updateProgramKeyCache but no documented guarantee or window
+  - surface: partner invoice / credit note
+    writes:
+    - updatePartnerInvoiceCreditDetails
+    - uploadInvoiceDocument
+    reversal_operation: null
+    window: null
+    note: A credit note is the accounting reversal of an invoice, and the service models credit notes as first-class
+      records - but the contract exposes no operation that reverses or voids a posted invoice, and no window is
+      stated anywhere. Not counted as a reversal path.
+  - surface: prospect / lead
+    writes:
+    - saveProspect
+    - updateProspect
+    - saveStatusData
+    - updatePartnerStage
+    reversal_operation: null
+    window: null
+    note: status transitions are forward-only in the contract; no rollback operation
+  - surface: team member
+    writes:
+    - saveTeamMember
+    - partialUpdateTeamMember
+    - createBusinessOwnerAsMember
+    reversal_operation: null
+    window: null
+    note: no delete and no deactivate operation is published
+  - surface: partner document
+    writes:
+    - uploadPartnerDocument
+    - verifyDocument
+    reversal_operation: null
+    window: null
+    note: no un-verify or document-withdrawal operation
+  dry_run_mode:
+    supported: false
+    note: no preview/validate-only mode in either contract
+  note: 'NEVER inferred: no window is asserted here because upGrad states none. An agent acting against this API
+    must treat every write as irreversible.'
+cross_links:
+- errors/upgrad-problem-types.yml
+- lifecycle/upgrad-lifecycle.yml
+- authentication/upgrad-authentication.yml
+- rate-limits/upgrad-rate-limits.yml

@@ -1,0 +1,140 @@
+generated: '2026-09-02'
+method: probed
+source: live GET of the named /.well-known/ path list on every apis.yml and OpenAPI servers[] host
+hit_count: 0
+path_echo_control: failed
+soft_404_control:
+  host: https://www.upgrad.com
+  path: /.well-known/upgrad-negative-control-7f3ab91c.json
+  status: 200
+  bytes: 1120833
+  note: 'The negative control returned HTTP 200 with the SAME 1,120,833-byte homepage as every real /.well-known/
+    path, so www.upgrad.com is a catch-all: no 200 on this host can be counted as a document. No WellKnown or SecurityTxt
+    pointer is emitted.'
+hosts:
+- host: https://www.upgrad.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    file: null
+    note: 403 AccessDenied (application/xml) from an S3/CloudFront origin - this one path routes away from the site
+      app
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: 'soft-404: returned the 1,120,833-byte /us/ homepage shell, identical to the negative control'
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: 'soft-404: returned the 1,120,833-byte /us/ homepage shell, identical to the negative control'
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    note: 'soft-404: returned the 1,120,833-byte /us/ homepage shell, identical to the negative control'
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: 'soft-404: returned the 1,120,833-byte /us/ homepage shell, identical to the negative control'
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    note: 'soft-404: returned the 1,120,833-byte /us/ homepage shell, identical to the negative control'
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    file: null
+    note: 'soft-404: returned the 1,120,833-byte /us/ homepage shell, identical to the negative control'
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: 'soft-404: returned the 1,120,833-byte /us/ homepage shell, identical to the negative control'
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: 'soft-404: returned the 1,120,833-byte /us/ homepage shell, identical to the negative control'
+- host: https://partner.upgrad.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/openid-configuration
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/api-catalog
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/aauth-resource.json
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/agent-card.json
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/agent.json
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/upgrad-negative-control-7f3ab91c.json
+    status: 401
+    file: null
+    note: negative control - same 401, so the wall is uniform authentication, not a path-echoing catch-all
+- host: https://learner-analytics-rest.upgrad.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/openid-configuration
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/api-catalog
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/aauth-resource.json
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/agent-card.json
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/agent.json
+    status: 401
+    file: null
+    note: auth wall - the service returns the same 401 for every path
+  - path: /.well-known/upgrad-negative-control-7f3ab91c.json
+    status: 401
+    file: null
+    note: negative control - same 401, uniform authentication wall
+note: Zero well-known documents served. The marketing host answers 200 with its homepage for every path including
+  a control that cannot exist; both API hosts answer 401 for every path including the control. Recorded as an absence,
+  with no WellKnown/SecurityTxt pointer.

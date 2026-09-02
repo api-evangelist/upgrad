@@ -1,0 +1,320 @@
+generated: '2026-09-02'
+method: derived
+status: candidate
+source: openapi/upgrad-partner-openapi.yml, openapi/upgrad-learner-analytics-openapi.yml
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+  note: upGrad ships no MCP server of any kind. mcp.upgrad.com does not resolve, no MCP endpoint is documented,
+    and no @upgrad/@upgrad-edu package exists on npm or PyPI. The tool list below is a DERIVED candidate projected
+    from the two published OpenAPI contracts - nobody can call it today.
+server:
+  name: upgrad
+  transport: null
+  url: null
+tool_count: 60
+tools:
+- name: updateVendorCode
+  description: PUT /vpc-only/user/{userId}/vendorCode
+  source_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+  method: PUT
+  path: /vpc-only/user/{userId}/vendorCode
+- name: updateProspect
+  description: PUT /vpc-only/prospect/{leadId}/{lsqEmail}
+  source_operation: openapi/upgrad-partner-openapi.yml#updateProspect
+  method: PUT
+  path: /vpc-only/prospect/{leadId}/{lsqEmail}
+- name: updatePartnerStage
+  description: PUT /user/{userId}/partner/stage/{type}
+  source_operation: openapi/upgrad-partner-openapi.yml#updatePartnerStage
+  method: PUT
+  path: /user/{userId}/partner/stage/{type}
+- name: updateAddressStatus
+  description: PUT /user/{userId}/address-status
+  source_operation: openapi/upgrad-partner-openapi.yml#updateAddressStatus
+  method: PUT
+  path: /user/{userId}/address-status
+- name: updateRmId
+  description: PUT /update-rm-id
+  source_operation: openapi/upgrad-partner-openapi.yml#updateRmId
+  method: PUT
+  path: /update-rm-id
+- name: updatePartnerInvoiceCreditDetails
+  description: PUT /update-partner-invoice-credit-note
+  source_operation: openapi/upgrad-partner-openapi.yml#updatePartnerInvoiceCreditDetails
+  method: PUT
+  path: /update-partner-invoice-credit-note
+- name: getTeamMemberDetail
+  description: GET /team-member/{teamMemberId}
+  source_operation: openapi/upgrad-partner-openapi.yml#getTeamMemberDetail
+  method: GET
+  path: /team-member/{teamMemberId}
+- name: partialUpdateTeamMember
+  description: PUT /team-member/{teamMemberId}
+  source_operation: openapi/upgrad-partner-openapi.yml#partialUpdateTeamMember
+  method: PUT
+  path: /team-member/{teamMemberId}
+- name: getStoreDetail
+  description: GET /store/{storeId}
+  source_operation: openapi/upgrad-partner-openapi.yml#getStoreDetail
+  method: GET
+  path: /store/{storeId}
+- name: updateStoreDetail
+  description: PUT /store/{storeId}
+  source_operation: openapi/upgrad-partner-openapi.yml#updateStoreDetail
+  method: PUT
+  path: /store/{storeId}
+- name: deleteStoreDetail
+  description: DELETE /store/{storeId}
+  source_operation: openapi/upgrad-partner-openapi.yml#deleteStoreDetail
+  method: DELETE
+  path: /store/{storeId}
+- name: getCommissionRules
+  description: GET /commission-rule
+  source_operation: openapi/upgrad-partner-openapi.yml#getCommissionRules
+  method: GET
+  path: /commission-rule
+- name: updateCommissionRule
+  description: PUT /commission-rule
+  source_operation: openapi/upgrad-partner-openapi.yml#updateCommissionRule
+  method: PUT
+  path: /commission-rule
+- name: saveCommissionRule
+  description: POST /commission-rule
+  source_operation: openapi/upgrad-partner-openapi.yml#saveCommissionRule
+  method: POST
+  path: /commission-rule
+- name: saveLoginListUploadDetails
+  description: POST /vpc-only/login-list
+  source_operation: openapi/upgrad-partner-openapi.yml#saveLoginListUploadDetails
+  method: POST
+  path: /vpc-only/login-list
+- name: verifyDocument
+  description: POST /user/{userId}/verify/document
+  source_operation: openapi/upgrad-partner-openapi.yml#verifyDocument
+  method: POST
+  path: /user/{userId}/verify/document
+- name: uploadPartnerDocument
+  description: POST /user/{userId}/partner/document
+  source_operation: openapi/upgrad-partner-openapi.yml#uploadPartnerDocument
+  method: POST
+  path: /user/{userId}/partner/document
+- name: getPartnerInfo
+  description: GET /user/{userId}/partner-detail
+  source_operation: openapi/upgrad-partner-openapi.yml#getPartnerInfo
+  method: GET
+  path: /user/{userId}/partner-detail
+- name: savePartnerDetails
+  description: POST /user/{userId}/partner-detail
+  source_operation: openapi/upgrad-partner-openapi.yml#savePartnerDetails
+  method: POST
+  path: /user/{userId}/partner-detail
+- name: uploadCsvDetails
+  description: POST /upload-csv-details
+  source_operation: openapi/upgrad-partner-openapi.yml#uploadCsvDetails
+  method: POST
+  path: /upload-csv-details
+- name: getTeamMembers
+  description: GET /team-member
+  source_operation: openapi/upgrad-partner-openapi.yml#getTeamMembers
+  method: GET
+  path: /team-member
+- name: saveTeamMember
+  description: POST /team-member
+  source_operation: openapi/upgrad-partner-openapi.yml#saveTeamMember
+  method: POST
+  path: /team-member
+- name: createBusinessOwnerAsMember
+  description: POST /team-member/business-owner/{userId}
+  source_operation: openapi/upgrad-partner-openapi.yml#createBusinessOwnerAsMember
+  method: POST
+  path: /team-member/business-owner/{userId}
+- name: getStoreList
+  description: GET /store
+  source_operation: openapi/upgrad-partner-openapi.yml#getStoreList
+  method: GET
+  path: /store
+- name: saveStoreDetail
+  description: POST /store
+  source_operation: openapi/upgrad-partner-openapi.yml#saveStoreDetail
+  method: POST
+  path: /store
+- name: saveStatusData
+  description: POST /save-status
+  source_operation: openapi/upgrad-partner-openapi.yml#saveStatusData
+  method: POST
+  path: /save-status
+- name: getProspects
+  description: GET /prospect
+  source_operation: openapi/upgrad-partner-openapi.yml#getProspects
+  method: GET
+  path: /prospect
+- name: saveProspect
+  description: POST /prospect
+  source_operation: openapi/upgrad-partner-openapi.yml#saveProspect
+  method: POST
+  path: /prospect
+- name: updateProgramKeyCache
+  description: POST /program-key-cache/update
+  source_operation: openapi/upgrad-partner-openapi.yml#updateProgramKeyCache
+  method: POST
+  path: /program-key-cache/update
+- name: uploadInvoiceDocument
+  description: POST /invoice/{userId}/document
+  source_operation: openapi/upgrad-partner-openapi.yml#uploadInvoiceDocument
+  method: POST
+  path: /invoice/{userId}/document
+- name: deleteFormConfigStep
+  description: POST /form-config/delete-form
+  source_operation: openapi/upgrad-partner-openapi.yml#deleteFormConfigStep
+  method: POST
+  path: /form-config/delete-form
+- name: addFormConfig
+  description: POST /form-config/add
+  source_operation: openapi/upgrad-partner-openapi.yml#addFormConfig
+  method: POST
+  path: /form-config/add
+- name: addFormConfig_1
+  description: POST /business-type/add
+  source_operation: openapi/upgrad-partner-openapi.yml#addFormConfig_1
+  method: POST
+  path: /business-type/add
+- name: getPartnerDocuments
+  description: GET /user/{userId}/partner/documents
+  source_operation: openapi/upgrad-partner-openapi.yml#getPartnerDocuments
+  method: GET
+  path: /user/{userId}/partner/documents
+- name: getTeamMembersByManger
+  description: GET /team-member/{userId}/manager/{teamMemberId}
+  source_operation: openapi/upgrad-partner-openapi.yml#getTeamMembersByManger
+  method: GET
+  path: /team-member/{userId}/manager/{teamMemberId}
+- name: getTeamHierarchy
+  description: GET /team-member/{teamMemberId}/hierarchy
+  source_operation: openapi/upgrad-partner-openapi.yml#getTeamHierarchy
+  method: GET
+  path: /team-member/{teamMemberId}/hierarchy
+- name: getMemberAndProspectAndStoreCount
+  description: GET /team-member/{teamMemberId}/count
+  source_operation: openapi/upgrad-partner-openapi.yml#getMemberAndProspectAndStoreCount
+  method: GET
+  path: /team-member/{teamMemberId}/count
+- name: getUgPartners
+  description: GET /sap/ug-partners
+  source_operation: openapi/upgrad-partner-openapi.yml#getUgPartners
+  method: GET
+  path: /sap/ug-partners
+- name: getProspect
+  description: GET /prospect/{prospectId}/lead/{leadId}
+  source_operation: openapi/upgrad-partner-openapi.yml#getProspect
+  method: GET
+  path: /prospect/{prospectId}/lead/{leadId}
+- name: getProgramKey
+  description: GET /program-key-cache
+  source_operation: openapi/upgrad-partner-openapi.yml#getProgramKey
+  method: GET
+  path: /program-key-cache
+- name: deleteProgramKey
+  description: DELETE /program-key-cache
+  source_operation: openapi/upgrad-partner-openapi.yml#deleteProgramKey
+  method: DELETE
+  path: /program-key-cache
+- name: getMasterData
+  description: GET /partner/master-data/{type}
+  source_operation: openapi/upgrad-partner-openapi.yml#getMasterData
+  method: GET
+  path: /partner/master-data/{type}
+- name: fetchLabelsByStatusTypes
+  description: GET /partner-status
+  source_operation: openapi/upgrad-partner-openapi.yml#fetchLabelsByStatusTypes
+  method: GET
+  path: /partner-status
+- name: getPartners
+  description: GET /partner-list
+  source_operation: openapi/upgrad-partner-openapi.yml#getPartners
+  method: GET
+  path: /partner-list
+- name: getPartnerInvoiceCreditNoteReport
+  description: GET /partner-invoice-credit-note-report
+  source_operation: openapi/upgrad-partner-openapi.yml#getPartnerInvoiceCreditNoteReport
+  method: GET
+  path: /partner-invoice-credit-note-report
+- name: getPartnerInvoiceCreditNoteReport_1
+  description: GET /learner-inv-cn-details
+  source_operation: openapi/upgrad-partner-openapi.yml#getPartnerInvoiceCreditNoteReport_1
+  method: GET
+  path: /learner-inv-cn-details
+- name: getInvoiceStatusFlow
+  description: GET /invoice-status-flow
+  source_operation: openapi/upgrad-partner-openapi.yml#getInvoiceStatusFlow
+  method: GET
+  path: /invoice-status-flow
+- name: getInvoiceDocumentUrl
+  description: GET /invoice-document-url/{dmsUploadId}
+  source_operation: openapi/upgrad-partner-openapi.yml#getInvoiceDocumentUrl
+  method: GET
+  path: /invoice-document-url/{dmsUploadId}
+- name: getPartnerInvoiceCreditNoteDashboard
+  description: GET /invoice-credit-note-dashboard
+  source_operation: openapi/upgrad-partner-openapi.yml#getPartnerInvoiceCreditNoteDashboard
+  method: GET
+  path: /invoice-credit-note-dashboard
+- name: getLoginListData
+  description: GET /hit-scheduler-process-credit-note-and-invoice-data
+  source_operation: openapi/upgrad-partner-openapi.yml#getLoginListData
+  method: GET
+  path: /hit-scheduler-process-credit-note-and-invoice-data
+- name: fetchAllFormConfigByPartner
+  description: GET /form-config/{partner}
+  source_operation: openapi/upgrad-partner-openapi.yml#fetchAllFormConfigByPartner
+  method: GET
+  path: /form-config/{partner}
+- name: getCommissionDetail
+  description: GET /commission-rule/{commissionId}
+  source_operation: openapi/upgrad-partner-openapi.yml#getCommissionDetail
+  method: GET
+  path: /commission-rule/{commissionId}
+- name: fetchAll
+  description: GET /business-type
+  source_operation: openapi/upgrad-partner-openapi.yml#fetchAll
+  method: GET
+  path: /business-type
+- name: deleteCoOwner
+  description: DELETE /user/{userId}/partner/co-partner/{partnerCoOwnerId}
+  source_operation: openapi/upgrad-partner-openapi.yml#deleteCoOwner
+  method: DELETE
+  path: /user/{userId}/partner/co-partner/{partnerCoOwnerId}
+- name: evictStudentProfileCache
+  description: Evict Student Profile Cache for User
+  source_operation: openapi/upgrad-learner-analytics-openapi.yml#evictStudentProfileCache
+  method: POST
+  path: /admin/evict-cache/student-profile/{userId}
+- name: evictAllMicroInteractionCache
+  description: POST /admin/evict-cache/micro-interaction-notification
+  source_operation: openapi/upgrad-learner-analytics-openapi.yml#evictAllMicroInteractionCache
+  method: POST
+  path: /admin/evict-cache/micro-interaction-notification
+- name: getUserReadingTimeLeaderBoardForCurrentDay
+  description: Reading Time Current Day LeaderBoard
+  source_operation: openapi/upgrad-learner-analytics-openapi.yml#getUserReadingTimeLeaderBoardForCurrentDay
+  method: GET
+  path: /leaderboard/reading-time/daily/course/{courseId}
+- name: getUserReadingTimeLeaderBoardForCurrentDay_1
+  description: Current Day Reading Time Rank for User
+  source_operation: openapi/upgrad-learner-analytics-openapi.yml#getUserReadingTimeLeaderBoardForCurrentDay_1
+  method: GET
+  path: /leaderboard/reading-time/daily/user/{userId}
+- name: getUserMicroInteractionNotification
+  description: Get Micro-Interaction notification for given criteria
+  source_operation: openapi/upgrad-learner-analytics-openapi.yml#getUserMicroInteractionNotification
+  method: GET
+  path: /micro-interaction-notification/{microInteractionType}
+- name: saveMicroInteractionNotification
+  description: Create micro interaction record.
+  source_operation: openapi/upgrad-learner-analytics-openapi.yml#saveMicroInteractionNotification
+  method: POST
+  path: /micro-interaction-notification

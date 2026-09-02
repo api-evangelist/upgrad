@@ -1,0 +1,20 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/upgrad-partner-openapi.yml
+limit_count: 0
+limits: []
+headers:
+  documented: []
+  observed: []
+  note: No RateLimit-*, X-RateLimit-* or Retry-After header is declared in either contract or documented anywhere
+exhaustion_status: 429
+summary: 'upGrad publishes NO rate limits. The only runtime signal that exists is structural: the Partner Service
+  declares a 429 Too Many Requests response on all 54 of its operations, so throttling is real and an agent will
+  meet it - but no scope, window, quota, burst allowance or retry header is stated, and 429 does not appear at all
+  in the Learner Analytics contract. An honest zero: a caller cannot compute a safe request rate or a correct backoff
+  from anything upGrad publishes.'
+evidence:
+- source: openapi/upgrad-partner-openapi.yml
+  finding: 429 declared on 54/54 operations
+- source: openapi/upgrad-learner-analytics-openapi.yml
+  finding: no 429 response declared on any of 6 operations

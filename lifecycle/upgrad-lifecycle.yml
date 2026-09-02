@@ -1,0 +1,39 @@
+generated: '2026-09-02'
+method: searched
+source: https://status.upgrad.com/ ; openapi/upgrad-partner-openapi.yml ; openapi/upgrad-learner-analytics-openapi.yml
+versioning:
+  scheme: none
+  current:
+    partner-service: '1'
+    learner-analytics: 1.0.0
+  docs: null
+  note: info.version only; no URI, header or date versioning and no published version policy
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  note: 'No deprecation policy, no RFC 8594 Sunset/Deprecation header support, and no operation in either spec carries
+    deprecated: true'
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: https://status.upgrad.com/
+  http_status: 200
+  title: upGrad status
+  platform: UptimeRobot (status.upgrad.com CNAMEs to stats.uptimerobot.com)
+  password_protected: true
+  note: upGrad operates a real, branded status page, but the page body reads "This status page is password protected"
+    - the component list and incident history are not publicly readable. The StatusPage pointer is emitted because
+    the provider genuinely runs the surface; this gate is recorded so the credit is not silent.
+incident_history: null
+changelog:
+  url: null
+  note: No dated API changelog or release notes are published for either service
+deprecated_operations: []
+gaps:
+- No deprecation policy
+- No Sunset/Deprecation headers
+- No SLA
+- No API changelog
+- Status page content is password protected

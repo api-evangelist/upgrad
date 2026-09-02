@@ -1,0 +1,49 @@
+generated: '2026-09-02'
+method: generated
+source: openapi/upgrad-partner-openapi.yml, openapi/upgrad-learner-analytics-openapi.yml, conventions/upgrad-conventions.yml,
+  errors/upgrad-problem-types.yml
+note: Every operationId referenced in every skill was verified against the harvested contracts before writing. upGrad
+  publishes no skills or AGENTS.md of its own; these are generated operating instructions.
+skills:
+- file: upgrad-onboard-channel-partner.md
+  name: Onboard a channel partner
+  api: openapi/upgrad-partner-openapi.yml
+  operations:
+  - savePartnerDetails
+  - getPartnerInfo
+  - uploadPartnerDocument
+  - getPartnerDocuments
+  - verifyDocument
+  - updateAddressStatus
+  - updatePartnerStage
+  - updateVendorCode
+- file: upgrad-manage-prospects.md
+  name: Capture and progress a partner prospect
+  api: openapi/upgrad-partner-openapi.yml
+  operations:
+  - saveProspect
+  - getProspects
+  - getProspect
+  - updateProspect
+  - saveStatusData
+  - fetchLabelsByStatusTypes
+- file: upgrad-partner-invoicing.md
+  name: Report on partner invoices and credit notes
+  api: openapi/upgrad-partner-openapi.yml
+  operations:
+  - getInvoiceStatusFlow
+  - getPartnerInvoiceCreditNoteReport
+  - getPartnerInvoiceCreditNoteDashboard
+  - uploadInvoiceDocument
+  - updatePartnerInvoiceCreditDetails
+  - getInvoiceDocumentUrl
+  - getCommissionRules
+  - getCommissionDetail
+- file: upgrad-learner-reading-leaderboard.md
+  name: Read learner reading-time leaderboards
+  api: openapi/upgrad-learner-analytics-openapi.yml
+  operations:
+  - getUserReadingTimeLeaderBoardForCurrentDay
+  - getUserReadingTimeLeaderBoardForCurrentDay_1
+  - getUserMicroInteractionNotification
+  - saveMicroInteractionNotification

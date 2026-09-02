@@ -1,0 +1,38 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for upGrad Partner Service
+  version: 1.0.0
+extends: openapi/upgrad-partner-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provenance:
+      harvested: '2026-09-02'
+      source: https://partner.upgrad.com/api-docs
+      method: searched
+      note: Verbatim springdoc output; the original is preserved at openapi/_original/upgrad-partner-openapi-original.json
+        and is never mutated
+    x-apievangelist-contract-gaps:
+    - 0 of 54 operations carry a summary
+    - 0 of 54 operations carry a description
+    - no tags[] block declares the 15 controller tags
+    - every response is typed */* rather than application/json
+    - no idempotency contract across 26 unsafe operations
+    - no versioning scheme
+    - no examples
+    x-apievangelist-artifacts:
+      authentication: authentication/upgrad-authentication.yml
+      errors: errors/upgrad-problem-types.yml
+      conventions: conventions/upgrad-conventions.yml
+      data_model: data-model/upgrad-data-model.yml
+      rate_limits: rate-limits/upgrad-rate-limits.yml
+      skills: skills/_index.yml
+- target: $.servers
+  update:
+  - url: https://partner.upgrad.com
+    description: Production - confirmed live 2026-09-02; the contract itself is anonymous, every operation requires
+      the AUTH-TOKEN header
+- target: $.components.securitySchemes['AUTH-TOKEN']
+  update:
+    x-apievangelist-note: Opaque API key issued by upGrad to channel partners; no self-serve issuance, no rotation
+      policy and no scope model is published

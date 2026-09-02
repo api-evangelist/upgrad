@@ -1,0 +1,19 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.upgrad.com/us/ ; https://www.upgrad.com/blog/ ; https://www.upgrad.com/study-abroad/ ; https://partner.upgrad.com/api-docs
+plan_count: 0
+plans: []
+summary: 'There is no API pricing of any kind. upGrad sells education, not API access: its commercial surface is
+  per-programme tuition quoted on each course page (and frequently only after a lead form), plus a study-abroad
+  advisory business - there is no developer plan, no usage tier, no metered quota and no public API price list.
+  The two contracts that are published are internal service APIs, reachable only with credentials upGrad issues
+  to channel partners and to its own learning platform, so no self-serve purchase path exists to price. Recorded
+  as an explicit zero rather than omitted, and no Pricing pointer is emitted.'
+commercial_model: per-programme tuition (course pages), study-abroad advisory; API access is credentialed, not sold
+evidence:
+- url: https://www.upgrad.com/us/
+  status: 200
+  finding: course marketing; no developer or API pricing surface
+- url: https://partner.upgrad.com/api-docs
+  status: 200
+  finding: contract published anonymously, but every operation requires an AUTH-TOKEN upGrad issues

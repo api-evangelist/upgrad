@@ -1,0 +1,111 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/upgrad-partner-openapi.yml, openapi/upgrad-learner-analytics-openapi.yml
+format: vendor
+rfc9457: false
+summary: Neither service uses RFC 9457 application/problem+json. Both declare a single vendor error envelope schema
+  named ErrorContext, and both return every response - success and error alike - under the media type */* rather
+  than a declared JSON type. The Partner Service attaches an identical 8-code error set to all 54 operations, so
+  the codes below are contract-wide defaults rather than per-operation semantics; no error code registry, titles
+  or remediation text is published anywhere in the contract or docs.
+envelopes:
+- name: ErrorContext
+  spec: openapi/upgrad-partner-openapi.yml
+  fields:
+    errorCode: string
+    messages: array of string
+    data: 'object (additionalProperties: object)'
+- name: ErrorContext
+  spec: openapi/upgrad-learner-analytics-openapi.yml
+  fields:
+    status: integer(int32)
+    messages: array of string
+problems:
+- status: 400
+  title: Bad Request
+  envelope: ErrorContext{errorCode,messages,data}
+  source_spec: openapi/upgrad-partner-openapi.yml
+  operations_declaring: 54
+  example_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+- status: 403
+  title: Forbidden
+  envelope: ErrorContext{errorCode,messages,data}
+  source_spec: openapi/upgrad-partner-openapi.yml
+  operations_declaring: 54
+  example_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+- status: 404
+  title: Not Found
+  envelope: ErrorContext{errorCode,messages,data}
+  source_spec: openapi/upgrad-partner-openapi.yml
+  operations_declaring: 54
+  example_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+- status: 405
+  title: Method Not Allowed
+  envelope: ErrorContext{errorCode,messages,data}
+  source_spec: openapi/upgrad-partner-openapi.yml
+  operations_declaring: 54
+  example_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+- status: 409
+  title: Conflict
+  envelope: ErrorContext{errorCode,messages,data}
+  source_spec: openapi/upgrad-partner-openapi.yml
+  operations_declaring: 54
+  example_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+- status: 429
+  title: Too Many Requests
+  envelope: ErrorContext{errorCode,messages,data}
+  source_spec: openapi/upgrad-partner-openapi.yml
+  operations_declaring: 54
+  example_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+- status: 500
+  title: Internal Server Error
+  envelope: ErrorContext{errorCode,messages,data}
+  source_spec: openapi/upgrad-partner-openapi.yml
+  operations_declaring: 54
+  example_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+- status: 503
+  title: Service Unavailable
+  envelope: ErrorContext{errorCode,messages,data}
+  source_spec: openapi/upgrad-partner-openapi.yml
+  operations_declaring: 54
+  example_operation: openapi/upgrad-partner-openapi.yml#updateVendorCode
+- status: 400
+  title: Bad Request
+  envelope: ErrorContext{status,messages}
+  source_spec: openapi/upgrad-learner-analytics-openapi.yml
+  operations_declaring: 6
+  example_operation: openapi/upgrad-learner-analytics-openapi.yml#evictStudentProfileCache
+- status: 403
+  title: Forbidden
+  envelope: ErrorContext{status,messages}
+  source_spec: openapi/upgrad-learner-analytics-openapi.yml
+  operations_declaring: 6
+  example_operation: openapi/upgrad-learner-analytics-openapi.yml#evictStudentProfileCache
+- status: 404
+  title: Not Found
+  envelope: ErrorContext{status,messages}
+  source_spec: openapi/upgrad-learner-analytics-openapi.yml
+  operations_declaring: 6
+  example_operation: openapi/upgrad-learner-analytics-openapi.yml#evictStudentProfileCache
+- status: 409
+  title: Conflict
+  envelope: ErrorContext{status,messages}
+  source_spec: openapi/upgrad-learner-analytics-openapi.yml
+  operations_declaring: 6
+  example_operation: openapi/upgrad-learner-analytics-openapi.yml#evictStudentProfileCache
+- status: 422
+  title: Unprocessable Entity
+  envelope: ErrorContext{status,messages}
+  source_spec: openapi/upgrad-learner-analytics-openapi.yml
+  operations_declaring: 6
+  example_operation: openapi/upgrad-learner-analytics-openapi.yml#evictStudentProfileCache
+- status: 500
+  title: Internal Server Error
+  envelope: ErrorContext{status,messages}
+  source_spec: openapi/upgrad-learner-analytics-openapi.yml
+  operations_declaring: 6
+  example_operation: openapi/upgrad-learner-analytics-openapi.yml#evictStudentProfileCache
+gaps:
+- No application/problem+json (RFC 9457) representation
+- No machine-readable error-code registry for the ErrorContext.errorCode values
+- No per-operation error descriptions - every response object is unlabelled

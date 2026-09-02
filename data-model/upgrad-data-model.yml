@@ -1,0 +1,577 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/upgrad-partner-openapi.yml, openapi/upgrad-learner-analytics-openapi.yml
+summary: 'Entity graph derived from $ref links and id-reference fields across both contracts: 45 schemas in the
+  Partner Service and 5 in Learner Analytics. The Partner Service models a channel-partner hierarchy - a partner
+  owns stores and team members, team members roll up through a manager hierarchy, prospects are captured against
+  a partner, and commission rules and invoice/credit-note records settle against them. No object reference or id-prefix
+  scheme is published, so entity identity is only visible through the field names below.'
+entities:
+- name: AddBusinessTypeRequest
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 3
+- name: AddFormConfigRequest
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 5
+- name: CoPartnerDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 4
+- name: CommissionRuleDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 15
+- name: CommissionRuleSlabDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 5
+- name: DMSUploadResponse
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 1
+- name: DeleteFormConfigRequest
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: DocumentDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 8
+- name: DocumentResponse
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 3
+- name: DocumentVerifyRequest
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 3
+- name: ErrorContext
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 3
+- name: FetchBusinessTypeResponse
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 3
+- name: FetchFormConfigResponse
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 5
+- name: InvoiceStatusFlowDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 4
+- name: LearnerInvoiceCreditNoteDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 29
+- name: LoginListUploadDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 5
+- name: MemberDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 16
+- name: PageResponseCommissionRuleDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: PageResponseLearnerInvoiceCreditNoteDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: PageResponsePartnerDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: PageResponsePartnerInvoiceCreditNoteReportDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: PageResponseProspectDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: PageResponseResponseStoreDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: PageResponseTeamMemberDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: PageResponseTeamMemberResponseDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: Pageable
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 3
+- name: PartnerBaseDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 16
+- name: PartnerDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 25
+- name: PartnerInvoiceCreditNoteDashboardDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 3
+- name: PartnerInvoiceCreditNoteReportDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 25
+- name: PartnerStageDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 7
+- name: PartnerStatusSummary
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 4
+- name: Predicate
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 0
+- name: ProspectDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 20
+- name: ProspectFilterDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 15
+- name: ResponseStoreDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 15
+- name: StatusDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 3
+- name: StoreDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 13
+- name: StoreFilterDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 7
+- name: TeamMemberDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 19
+- name: TeamMemberResponseDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 19
+- name: UpdatePartnerStageRequestDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 5
+- name: UpdateRmIdDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 2
+- name: UserDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 9
+- name: UserUploadedEventTempUrlDto
+  spec: openapi/upgrad-partner-openapi.yml
+  properties: 1
+- name: AddressDto
+  spec: openapi/upgrad-learner-analytics-openapi.yml
+  properties: 4
+- name: ErrorContext
+  spec: openapi/upgrad-learner-analytics-openapi.yml
+  properties: 2
+- name: LearnerReadingTimeStatsDto
+  spec: openapi/upgrad-learner-analytics-openapi.yml
+  properties: 5
+- name: StudentProfileDto
+  spec: openapi/upgrad-learner-analytics-openapi.yml
+  properties: 6
+- name: UserMicroInteractionNotify
+  spec: openapi/upgrad-learner-analytics-openapi.yml
+  properties: 4
+relationships:
+- from: UpdatePartnerStageRequestDto
+  to: null
+  kind: belongs_to
+  via: statusId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: UpdateRmIdDto
+  to: null
+  kind: belongs_to
+  via: rmId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: UpdateRmIdDto
+  to: null
+  kind: belongs_to
+  via: partnerId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: StoreDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: StoreDto
+  to: null
+  kind: belongs_to
+  via: managerId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: CommissionRuleDto
+  to: null
+  kind: belongs_to
+  via: partnerId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: CommissionRuleDto
+  to: null
+  kind: belongs_to
+  via: parentRuleId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: CommissionRuleDto
+  to: CommissionRuleSlabDto
+  kind: has_many
+  via: commissionRuleSlab
+  source: openapi/upgrad-partner-openapi.yml
+- from: CommissionRuleDto
+  to: null
+  kind: belongs_to
+  via: lastUpdatedById
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: CommissionRuleSlabDto
+  to: null
+  kind: belongs_to
+  via: commissionRuleId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: DocumentVerifyRequest
+  to: null
+  kind: belongs_to
+  via: userUploadEventId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: DocumentDto
+  to: null
+  kind: belongs_to
+  via: dmsUploadId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: DocumentResponse
+  to: CoPartnerDto
+  kind: has_one
+  via: coPartner
+  source: openapi/upgrad-partner-openapi.yml
+- from: DocumentResponse
+  to: DocumentDto
+  kind: has_many
+  via: documents
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerBaseDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: TeamMemberDto
+  to: null
+  kind: belongs_to
+  via: teamMemberId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: TeamMemberDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: TeamMemberDto
+  to: null
+  kind: belongs_to
+  via: storeId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: TeamMemberDto
+  to: null
+  kind: belongs_to
+  via: managerId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: MemberDto
+  to: null
+  kind: belongs_to
+  via: teamMemberId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: MemberDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: TeamMemberResponseDto
+  to: null
+  kind: belongs_to
+  via: teamMemberId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: TeamMemberResponseDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: TeamMemberResponseDto
+  to: MemberDto
+  kind: has_one
+  via: managerDetail
+  source: openapi/upgrad-partner-openapi.yml
+- from: TeamMemberResponseDto
+  to: StoreDto
+  kind: has_many
+  via: storeDetails
+  source: openapi/upgrad-partner-openapi.yml
+- from: ProspectDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: ProspectDto
+  to: null
+  kind: belongs_to
+  via: leadId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: ProspectDto
+  to: null
+  kind: belongs_to
+  via: teamMemberId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: ProspectDto
+  to: UserDto
+  kind: has_one
+  via: memberDetail
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerDto
+  to: PartnerStageDto
+  kind: has_many
+  via: partnerStages
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerDto
+  to: null
+  kind: belongs_to
+  via: regionalManagerId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerDto
+  to: PartnerStatusSummary
+  kind: has_one
+  via: partnerStatusSummary
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerDto
+  to: null
+  kind: belongs_to
+  via: loggedRmId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerStageDto
+  to: StatusDto
+  kind: has_one
+  via: status
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerStatusSummary
+  to: null
+  kind: belongs_to
+  via: dmsUploadId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PageResponseTeamMemberResponseDto
+  to: TeamMemberResponseDto
+  kind: has_many
+  via: data
+  source: openapi/upgrad-partner-openapi.yml
+- from: PageResponseTeamMemberDto
+  to: TeamMemberDto
+  kind: has_many
+  via: data
+  source: openapi/upgrad-partner-openapi.yml
+- from: StoreFilterDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: StoreFilterDto
+  to: null
+  kind: belongs_to
+  via: teamMemberId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PageResponseResponseStoreDto
+  to: ResponseStoreDto
+  kind: has_many
+  via: data
+  source: openapi/upgrad-partner-openapi.yml
+- from: ResponseStoreDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: ResponseStoreDto
+  to: null
+  kind: belongs_to
+  via: managerId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: ResponseStoreDto
+  to: PageResponseTeamMemberResponseDto
+  kind: has_one
+  via: storeTeams
+  source: openapi/upgrad-partner-openapi.yml
+- from: PageResponsePartnerDto
+  to: PartnerDto
+  kind: has_many
+  via: data
+  source: openapi/upgrad-partner-openapi.yml
+- from: ProspectFilterDto
+  to: null
+  kind: belongs_to
+  via: teamMemberId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: ProspectFilterDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: ProspectFilterDto
+  to: null
+  kind: belongs_to
+  via: leadId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PageResponseProspectDto
+  to: ProspectDto
+  kind: has_many
+  via: data
+  source: openapi/upgrad-partner-openapi.yml
+- from: PageResponsePartnerInvoiceCreditNoteReportDto
+  to: PartnerInvoiceCreditNoteReportDto
+  kind: has_many
+  via: data
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerInvoiceCreditNoteReportDto
+  to: null
+  kind: belongs_to
+  via: partnerId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerInvoiceCreditNoteReportDto
+  to: null
+  kind: belongs_to
+  via: parentPartnerInvoiceStatusFlowId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerInvoiceCreditNoteReportDto
+  to: null
+  kind: belongs_to
+  via: childPartnerInvoiceStatusFlowId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerInvoiceCreditNoteReportDto
+  to: null
+  kind: belongs_to
+  via: dmsUploadId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerInvoiceCreditNoteReportDto
+  to: null
+  kind: belongs_to
+  via: lastUpdatedById
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerInvoiceCreditNoteReportDto
+  to: null
+  kind: belongs_to
+  via: lastApprovedById
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: LearnerInvoiceCreditNoteDto
+  to: null
+  kind: belongs_to
+  via: partnerInvoiceId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: LearnerInvoiceCreditNoteDto
+  to: null
+  kind: belongs_to
+  via: partnerId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: LearnerInvoiceCreditNoteDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: LearnerInvoiceCreditNoteDto
+  to: null
+  kind: belongs_to
+  via: commissionRuleId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: LearnerInvoiceCreditNoteDto
+  to: null
+  kind: belongs_to
+  via: commissionRuleSlabId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: LearnerInvoiceCreditNoteDto
+  to: null
+  kind: belongs_to
+  via: emailId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-partner-openapi.yml
+- from: PageResponseLearnerInvoiceCreditNoteDto
+  to: LearnerInvoiceCreditNoteDto
+  kind: has_many
+  via: data
+  source: openapi/upgrad-partner-openapi.yml
+- from: PartnerInvoiceCreditNoteDashboardDto
+  to: PartnerInvoiceCreditNoteReportDto
+  kind: has_many
+  via: reports
+  source: openapi/upgrad-partner-openapi.yml
+- from: PageResponseCommissionRuleDto
+  to: CommissionRuleDto
+  kind: has_many
+  via: data
+  source: openapi/upgrad-partner-openapi.yml
+- from: LearnerReadingTimeStatsDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-learner-analytics-openapi.yml
+- from: LearnerReadingTimeStatsDto
+  to: null
+  kind: belongs_to
+  via: courseId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-learner-analytics-openapi.yml
+- from: LearnerReadingTimeStatsDto
+  to: StudentProfileDto
+  kind: has_one
+  via: studentProfile
+  source: openapi/upgrad-learner-analytics-openapi.yml
+- from: StudentProfileDto
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-learner-analytics-openapi.yml
+- from: StudentProfileDto
+  to: null
+  kind: belongs_to
+  via: emailId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-learner-analytics-openapi.yml
+- from: StudentProfileDto
+  to: AddressDto
+  kind: has_one
+  via: address
+  source: openapi/upgrad-learner-analytics-openapi.yml
+- from: UserMicroInteractionNotify
+  to: null
+  kind: belongs_to
+  via: userId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-learner-analytics-openapi.yml
+- from: UserMicroInteractionNotify
+  to: null
+  kind: belongs_to
+  via: courseId
+  note: id-reference field; target entity not modelled as a schema
+  source: openapi/upgrad-learner-analytics-openapi.yml

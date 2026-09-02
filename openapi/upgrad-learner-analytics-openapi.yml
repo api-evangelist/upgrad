@@ -1,0 +1,468 @@
+openapi: 3.0.1
+info:
+  title: Learner Experience - Analytics Rest Service
+  version: 1.0.0
+servers:
+- url: https://learner-analytics-rest.upgrad.com
+  description: Generated server url
+paths:
+  /admin/evict-cache/student-profile/{userId}:
+    post:
+      tags:
+      - admin-controller
+      summary: Evict Student Profile Cache for User
+      description: Will return 1 if User-Cache found and evicted successfully, else will return 0
+      operationId: evictStudentProfileCache
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+      security:
+      - Authorization: []
+  /admin/evict-cache/micro-interaction-notification:
+    post:
+      tags:
+      - admin-controller
+      description: Used to Evict Micro Interaction Notification Cache
+      operationId: evictAllMicroInteractionCache
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+      security:
+      - Authorization: []
+  /leaderboard/reading-time/daily/course/{courseId}:
+    get:
+      tags:
+      - leader-board-controller
+      summary: Reading Time Current Day LeaderBoard
+      description: By default it will fetch first 10 users by Rank. Optionally you can specify the range.
+        Max Range Allowed is 30 Learners
+      operationId: getUserReadingTimeLeaderBoardForCurrentDay
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: pageNumber
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LearnerReadingTimeStatsDto'
+      security:
+      - Authorization: []
+  /leaderboard/reading-time/daily/user/{userId}:
+    get:
+      tags:
+      - leader-board-controller
+      summary: Current Day Reading Time Rank for User
+      operationId: getUserReadingTimeLeaderBoardForCurrentDay_1
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: courseId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LearnerReadingTimeStatsDto'
+      security:
+      - Authorization: []
+  /micro-interaction-notification/{microInteractionType}:
+    get:
+      tags:
+      - micro-interaction-notification-controller
+      summary: Get Micro-Interaction notification for given criteria
+      description: Get status of microInteraction by micro interaction type in request
+      operationId: getUserMicroInteractionNotification
+      parameters:
+      - name: microInteractionType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: courseId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: notificationDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserMicroInteractionNotify'
+      security:
+      - Authorization: []
+  /micro-interaction-notification:
+    post:
+      tags:
+      - micro-interaction-notification-controller
+      summary: Create micro interaction record.
+      description: Add micro interaction type entry.
+      operationId: saveMicroInteractionNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserMicroInteractionNotify'
+        required: true
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserMicroInteractionNotify'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    ErrorContext:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        messages:
+          type: array
+          items:
+            type: string
+    AddressDto:
+      type: object
+      properties:
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+    LearnerReadingTimeStatsDto:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        courseId:
+          type: integer
+          format: int64
+        currentDayReadingTime:
+          type: number
+          format: double
+        currentDayReadingTimeRank:
+          type: integer
+          format: int64
+        studentProfile:
+          $ref: '#/components/schemas/StudentProfileDto'
+    StudentProfileDto:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        emailId:
+          type: string
+        profilePicUrl:
+          type: string
+        address:
+          $ref: '#/components/schemas/AddressDto'
+    UserMicroInteractionNotify:
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        courseId:
+          type: integer
+          format: int64
+        interactionType:
+          type: string
+        notificationDate:
+          type: string
+          format: date
+  securitySchemes:
+    Authorization:
+      type: http
+      name: Authorization
+      in: header
+      scheme: bearer
+      bearerFormat: JWT

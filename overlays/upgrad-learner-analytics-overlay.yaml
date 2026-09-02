@@ -1,0 +1,27 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for upGrad Learner Experience Analytics
+  version: 1.0.0
+extends: openapi/upgrad-learner-analytics-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provenance:
+      harvested: '2026-09-02'
+      source: https://learner-analytics-rest.upgrad.com/api-docs
+      method: searched
+    x-apievangelist-contract-gaps:
+    - bearer JWT scheme is DECLARED but never APPLIED - no security requirement on any operation, so the contract
+      does not say what is protected
+    - every response is typed */*
+    - 1 of 6 operations lacks a summary
+    - no examples
+    - no tags[] declarations
+    x-apievangelist-artifacts:
+      authentication: authentication/upgrad-authentication.yml
+      errors: errors/upgrad-problem-types.yml
+      conventions: conventions/upgrad-conventions.yml
+- target: $.servers
+  update:
+  - url: https://learner-analytics-rest.upgrad.com
+    description: Production - confirmed live 2026-09-02

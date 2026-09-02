@@ -1,0 +1,27 @@
+generated: '2026-09-02'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.upgrad.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  8 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: partner.upgrad.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 26 23:33:24 2026 GMT
+  hsts: null
+- host: learner-analytics-rest.upgrad.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  9 20:53:06 2026 GMT
+  hsts: null
+domains:
+- domain: upgrad.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

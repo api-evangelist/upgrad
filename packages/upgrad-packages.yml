@@ -1,0 +1,47 @@
+generated: '2026-09-02'
+method: searched
+source: npm, PyPI, RubyGems, Maven Central, NuGet, crates.io, pkg.go.dev and https://github.com/upgrad
+package_count: 0
+official_sdk_count: 0
+packages: []
+summary: upGrad publishes NO client library for either of its two public API contracts, in any registry or language.
+  Its GitHub organisation github.com/upgrad holds 13 public repositories, but every one is a generic engineering
+  utility rather than an API client - a CKEditor image-upload plugin, a Django soft-delete library, a CocoaPods
+  Flutter-integration plugin, headless-browser test scaffolding, a React image gallery, an Express S3 image module,
+  two Swift UI components and four Flutter/React-Native example shells. The most recently pushed repository is react-image-gallery
+  (2023-01-05); ten of the thirteen were last pushed in 2019 or earlier. None of them wraps partner.upgrad.com or
+  learner-analytics-rest.upgrad.com. No SDKs pointer is emitted, because there is no SDK.
+searched_registries:
+- registry: npm
+  result: no first-party upGrad API client
+- registry: pypi
+  result: no first-party upGrad API client
+- registry: rubygems
+  result: no first-party upGrad API client
+- registry: maven-central
+  result: no first-party upGrad API client
+- registry: nuget
+  result: no first-party upGrad API client
+- registry: crates.io
+  result: no first-party upGrad API client
+- registry: pkg.go.dev
+  result: no first-party upGrad API client
+related_open_source:
+  org: https://github.com/upgrad
+  public_repos: 13
+  note: First-party but NOT API clients - listed for provenance only, deliberately not recorded as packages[]
+  most_recent_push: '2023-01-05'
+  repos:
+  - ckeditor-image-uploader-plugin
+  - headless_browser_tests
+  - cocoapods-integrate-flutter
+  - django-deletes
+  - react-image-gallery
+  - express-s3-image-resources
+  - SwiftyStarRatingView
+  - StatefulViewController
+  - UGFlutter
+  - UGFlutterIOSExample
+  - UGFlutterAndroidExample
+  - UGReactNative
+  - UGReactNativeAndroidExample

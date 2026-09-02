@@ -1,0 +1,22 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/upgrad-learner-analytics-openapi.yml, openapi/upgrad-partner-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: Authorization
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/upgrad-learner-analytics-openapi.yml
+- name: AUTH-TOKEN
+  type: apiKey
+  in: header
+  parameter: AUTH-TOKEN
+  sources:
+  - openapi/upgrad-partner-openapi.yml

@@ -1,0 +1,4878 @@
+openapi: 3.0.1
+info:
+  title: Partner Service
+  license:
+    name: Apache 2.0
+    url: https://upgrad.com
+  version: '1'
+servers:
+- url: https://partner.upgrad.com
+  description: Generated server url
+security:
+- AUTH-TOKEN: []
+paths:
+  '**inorganic**': {}
+  '*': {}
+  /vpc-only/user/{userId}/vendorCode:
+    put:
+      tags:
+      - partner-controller
+      operationId: updateVendorCode
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: vendorCode
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /vpc-only/prospect/{leadId}/{lsqEmail}:
+    put:
+      tags:
+      - prospect-controller
+      operationId: updateProspect
+      parameters:
+      - name: leadId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: lsqEmail
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /user/{userId}/partner/stage/{type}:
+    put:
+      tags:
+      - status-controller
+      operationId: updatePartnerStage
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                request:
+                  $ref: '#/components/schemas/UpdatePartnerStageRequestDto'
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /user/{userId}/address-status:
+    put:
+      tags:
+      - partner-controller
+      operationId: updateAddressStatus
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: status
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /update-rm-id:
+    put:
+      tags:
+      - partner-controller
+      operationId: updateRmId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRmIdDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /update-partner-invoice-credit-note:
+    put:
+      tags:
+      - partner-invoice-credit-note-controller
+      operationId: updatePartnerInvoiceCreditDetails
+      parameters:
+      - name: partnerInvoiceCreditNoteId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: partnerInvoiceFlowId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /team-member/{teamMemberId}:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getTeamMemberDetail
+      parameters:
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TeamMemberResponseDto'
+    put:
+      tags:
+      - team-member-controller
+      operationId: partialUpdateTeamMember
+      parameters:
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /store/{storeId}:
+    get:
+      tags:
+      - store-controller
+      operationId: getStoreDetail
+      parameters:
+      - name: storeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: storeFilter
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/StoreFilterDto'
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseStoreDto'
+    put:
+      tags:
+      - store-controller
+      operationId: updateStoreDetail
+      parameters:
+      - name: storeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StoreDto'
+    delete:
+      tags:
+      - store-controller
+      operationId: deleteStoreDetail
+      parameters:
+      - name: storeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /commission-rule:
+    get:
+      tags:
+      - commission-rule-controller
+      operationId: getCommissionRules
+      parameters:
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseCommissionRuleDto'
+    put:
+      tags:
+      - commission-rule-controller
+      operationId: updateCommissionRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommissionRuleDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+    post:
+      tags:
+      - commission-rule-controller
+      operationId: saveCommissionRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommissionRuleDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /vpc-only/login-list:
+    post:
+      tags:
+      - login-list-upload-controller
+      operationId: saveLoginListUploadDetails
+      parameters:
+      - name: loginListUploadDetails
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/LoginListUploadDto'
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /user/{userId}/verify/document:
+    post:
+      tags:
+      - partner-document-controller
+      operationId: verifyDocument
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentVerifyRequest'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DMSUploadResponse'
+  /user/{userId}/partner/document:
+    post:
+      tags:
+      - partner-document-controller
+      operationId: uploadPartnerDocument
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: files
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            format: binary
+      - name: coPartner
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: attributes
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: updateDetails
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DocumentResponse'
+  /user/{userId}/partner-detail:
+    get:
+      tags:
+      - partner-controller
+      operationId: getPartnerInfo
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PartnerDto'
+    post:
+      tags:
+      - partner-controller
+      operationId: savePartnerDetails
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerBaseDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /upload-csv-details:
+    post:
+      tags:
+      - login-list-controller
+      operationId: uploadCsvDetails
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /team-member:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getTeamMembers
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTeamMemberResponseDto'
+    post:
+      tags:
+      - team-member-controller
+      operationId: saveTeamMember
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamMemberDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TeamMemberResponseDto'
+  /team-member/business-owner/{userId}:
+    post:
+      tags:
+      - team-member-controller
+      operationId: createBusinessOwnerAsMember
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /store:
+    get:
+      tags:
+      - store-controller
+      operationId: getStoreList
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      - name: storeFilter
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/StoreFilterDto'
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseResponseStoreDto'
+    post:
+      tags:
+      - store-controller
+      operationId: saveStoreDetail
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StoreDto'
+  /save-status:
+    post:
+      tags:
+      - status-controller
+      operationId: saveStatusData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /prospect:
+    get:
+      tags:
+      - prospect-controller
+      operationId: getProspects
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: prospectFilter
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/ProspectFilterDto'
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseProspectDto'
+    post:
+      tags:
+      - prospect-controller
+      operationId: saveProspect
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProspectDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProspectDto'
+  /program-key-cache/update:
+    post:
+      tags:
+      - program-key-cache-controller
+      operationId: updateProgramKeyCache
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /invoice/{userId}/document:
+    post:
+      tags:
+      - partner-invoice-credit-note-controller
+      operationId: uploadInvoiceDocument
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: partnerInvoiceCreditNoteId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+              - files
+              type: object
+              properties:
+                files:
+                  type: string
+                  format: binary
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /form-config/delete-form:
+    post:
+      tags:
+      - form-config-controller
+      operationId: deleteFormConfigStep
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteFormConfigRequest'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /form-config/add:
+    post:
+      tags:
+      - form-config-controller
+      operationId: addFormConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddFormConfigRequest'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /business-type/add:
+    post:
+      tags:
+      - business-type-controller
+      operationId: addFormConfig_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddBusinessTypeRequest'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /user/{userId}/partner/documents:
+    get:
+      tags:
+      - partner-document-controller
+      operationId: getPartnerDocuments
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DocumentResponse'
+  /team-member/{userId}/manager/{teamMemberId}:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getTeamMembersByManger
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTeamMemberResponseDto'
+  /team-member/{teamMemberId}/hierarchy:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getTeamHierarchy
+      parameters:
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTeamMemberDto'
+  /team-member/{teamMemberId}/count:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getMemberAndProspectAndStoreCount
+      parameters:
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: userType
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /sap/ug-partners:
+    get:
+      tags:
+      - partner-controller
+      operationId: getUgPartners
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponsePartnerDto'
+  /prospect/{prospectId}/lead/{leadId}:
+    get:
+      tags:
+      - prospect-controller
+      operationId: getProspect
+      parameters:
+      - name: prospectId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: leadId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProspectDto'
+  /program-key-cache:
+    get:
+      tags:
+      - program-key-cache-controller
+      operationId: getProgramKey
+      parameters:
+      - name: programKey
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    delete:
+      tags:
+      - program-key-cache-controller
+      operationId: deleteProgramKey
+      parameters:
+      - name: programKey
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /partner/master-data/{type}:
+    get:
+      tags:
+      - master-data-controller
+      operationId: getMasterData
+      parameters:
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /partner-status:
+    get:
+      tags:
+      - status-controller
+      operationId: fetchLabelsByStatusTypes
+      parameters:
+      - name: partnerStatus
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: bvgStatus
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: agreementStatus
+        in: query
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/StatusDto'
+  /partner-list:
+    get:
+      tags:
+      - partner-controller
+      operationId: getPartners
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: mobile
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponsePartnerDto'
+  /partner-invoice-credit-note-report:
+    get:
+      tags:
+      - partner-invoice-credit-note-controller
+      operationId: getPartnerInvoiceCreditNoteReport
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: mobile
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: invoiceMonth
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: toDate
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fromDate
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: parentPartnerInvoiceStatusFlowIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: regionalManagerIds
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponsePartnerInvoiceCreditNoteReportDto'
+  /learner-inv-cn-details:
+    get:
+      tags:
+      - learner-invoice-credit-note-controller
+      operationId: getPartnerInvoiceCreditNoteReport_1
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      - name: invoiceMonth
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseLearnerInvoiceCreditNoteDto'
+  /invoice-status-flow:
+    get:
+      tags:
+      - partner-invoice-credit-note-controller
+      operationId: getInvoiceStatusFlow
+      parameters:
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InvoiceStatusFlowDto'
+  /invoice-document-url/{dmsUploadId}:
+    get:
+      tags:
+      - partner-invoice-credit-note-controller
+      operationId: getInvoiceDocumentUrl
+      parameters:
+      - name: dmsUploadId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserUploadedEventTempUrlDto'
+  /invoice-credit-note-dashboard:
+    get:
+      tags:
+      - partner-invoice-credit-note-controller
+      operationId: getPartnerInvoiceCreditNoteDashboard
+      parameters:
+      - name: partnerId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PartnerInvoiceCreditNoteDashboardDto'
+  /hit-scheduler-process-credit-note-and-invoice-data:
+    get:
+      tags:
+      - login-list-controller
+      operationId: getLoginListData
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+  /form-config/{partner}:
+    get:
+      tags:
+      - form-config-controller
+      operationId: fetchAllFormConfigByPartner
+      parameters:
+      - name: partner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: platformType
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FetchFormConfigResponse'
+  /commission-rule/{commissionId}:
+    get:
+      tags:
+      - commission-rule-controller
+      operationId: getCommissionDetail
+      parameters:
+      - name: commissionId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommissionRuleDto'
+  /business-type:
+    get:
+      tags:
+      - business-type-controller
+      operationId: fetchAll
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FetchBusinessTypeResponse'
+  /user/{userId}/partner/co-partner/{partnerCoOwnerId}:
+    delete:
+      tags:
+      - partner-document-controller
+      operationId: deleteCoOwner
+      parameters:
+      - name: partnerCoOwnerId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    UpdatePartnerStageRequestDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        statusId:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        signDate:
+          type: string
+          format: date
+    UpdateRmIdDto:
+      type: object
+      properties:
+        rmId:
+          type: integer
+          format: int64
+        partnerId:
+          type: array
+          items:
+            type: integer
+            format: int64
+    StoreDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        storeName:
+          type: string
+        address:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pinCode:
+          type: integer
+          format: int32
+        fullAddress:
+          type: string
+        landmark:
+          type: string
+        status:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int64
+        managerId:
+          type: integer
+          format: int64
+    CommissionRuleDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        partnerDetail:
+          type: string
+          enum:
+          - GST_PARTNER
+          - NON_GST_PARTNER
+          - PARTNER_SPECIFIC
+        partnerType:
+          type: string
+          enum:
+          - FP
+          - CP
+          - CP_SA
+          - LC
+        partnerId:
+          type: integer
+          format: int64
+        programType:
+          type: string
+          enum:
+          - PROGRAM_VERTICAL
+          - PROGRAM_SPECIFIC
+        programVertical:
+          type: string
+        programKey:
+          type: string
+        commissionType:
+          type: string
+          enum:
+          - FIXED
+          - SLAB_AMOUNT
+          - SLAB_ENROLLMENT
+        commission:
+          type: number
+          format: double
+        applicableFromDate:
+          type: string
+          format: date
+        parentRuleId:
+          type: integer
+          format: int64
+        archivedAt:
+          type: string
+          format: date
+        commissionRuleSlab:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommissionRuleSlabDto'
+        lastUpdatedById:
+          type: integer
+          format: int64
+        lastUpdated:
+          type: string
+          format: date-time
+    CommissionRuleSlabDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        commissionRuleId:
+          type: integer
+          format: int64
+        minLimit:
+          type: number
+          format: double
+        maxLimit:
+          type: number
+          format: double
+        commission:
+          type: number
+          format: double
+    LoginListUploadDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        month:
+          type: integer
+          format: int32
+        year:
+          type: integer
+          format: int32
+        loginListPath:
+          type: string
+        status:
+          type: string
+          enum:
+          - NEW
+          - PROGRESS
+          - ARCHIVE
+    DocumentVerifyRequest:
+      type: object
+      properties:
+        userUploadEventId:
+          type: string
+        verified:
+          type: boolean
+        comments:
+          type: string
+    DMSUploadResponse:
+      type: object
+      properties:
+        id:
+          type: string
+    CoPartnerDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        mobile:
+          type: string
+        type:
+          type: string
+    DocumentDto:
+      type: object
+      properties:
+        docAttributes:
+          type: object
+          additionalProperties:
+            type: string
+        documentConfigCode:
+          type: string
+        status:
+          type: integer
+          format: int64
+        dmsUploadId:
+          type: string
+        statusLabel:
+          type: string
+        comments:
+          type: string
+        fileLabel:
+          type: string
+        documentUrl:
+          type: string
+    DocumentResponse:
+      type: object
+      properties:
+        coPartner:
+          $ref: '#/components/schemas/CoPartnerDto'
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentDto'
+        status:
+          type: string
+    PartnerBaseDto:
+      required:
+      - email
+      - mobile
+      - postalCode
+      type: object
+      properties:
+        addressLine:
+          type: string
+        city:
+          type: string
+        state:
+          type: integer
+          format: int64
+        landmark:
+          type: string
+        postalCode:
+          type: integer
+          format: int32
+        invalidStatus:
+          type: boolean
+        stateName:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        email:
+          type: string
+        fullName:
+          type: string
+        mobile:
+          maximum: 10
+          minimum: 0
+          type: integer
+          format: int64
+        businessName:
+          type: string
+        authorisedSignatory:
+          type: string
+        businessType:
+          type: string
+        partnershipType:
+          type: string
+          enum:
+          - CHANNEL_PARTNER
+          - FREELANCER
+          - FRANCHISE
+          - STUDY_ABROAD
+          - LC_PARTNER
+        sapCode:
+          pattern: ^[0-9]{10,11}$
+          type: string
+    TeamMemberDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        fullName:
+          type: string
+        role:
+          type: string
+        alternateEmail:
+          type: string
+        password:
+          type: string
+        permission:
+          type: string
+        teamMemberId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        designation:
+          type: string
+        addMemberAllowed:
+          type: boolean
+        lsqEmail:
+          type: string
+        status:
+          type: string
+          enum:
+          - Invited
+          - Registered
+          - Deactivated
+        degreeEmail:
+          type: string
+        storeId:
+          type: integer
+          format: int64
+        managerId:
+          type: integer
+          format: int64
+        storeManager:
+          type: boolean
+    MemberDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        fullName:
+          type: string
+        role:
+          type: string
+        alternateEmail:
+          type: string
+        password:
+          type: string
+        permission:
+          type: string
+        teamMemberId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        designation:
+          type: string
+        addMemberAllowed:
+          type: boolean
+        lsqEmail:
+          type: string
+        status:
+          type: string
+          enum:
+          - Invited
+          - Registered
+          - Deactivated
+        degreeEmail:
+          type: string
+    TeamMemberResponseDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        fullName:
+          type: string
+        role:
+          type: string
+        alternateEmail:
+          type: string
+        password:
+          type: string
+        permission:
+          type: string
+        teamMemberId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        designation:
+          type: string
+        addMemberAllowed:
+          type: boolean
+        lsqEmail:
+          type: string
+        status:
+          type: string
+          enum:
+          - Invited
+          - Registered
+          - Deactivated
+        degreeEmail:
+          type: string
+        managerDetail:
+          $ref: '#/components/schemas/MemberDto'
+        storeDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/StoreDto'
+        totalMember:
+          type: integer
+          format: int64
+    StatusDto:
+      type: object
+      properties:
+        label:
+          type: string
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+    ProspectDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        leadId:
+          type: string
+        status:
+          type: integer
+          format: int32
+        teamMemberId:
+          type: integer
+          format: int64
+        goal:
+          type: string
+        fullName:
+          type: string
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        city:
+          type: string
+        course:
+          type: string
+        platform:
+          type: string
+        extraFields:
+          type: object
+          additionalProperties:
+            type: object
+        statusLabel:
+          type: string
+        created:
+          type: string
+          format: date-time
+        memberDetail:
+          $ref: '#/components/schemas/UserDto'
+        university:
+          type: string
+        universityName:
+          type: string
+        courseName:
+          type: string
+    UserDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        fullName:
+          type: string
+        role:
+          type: string
+        alternateEmail:
+          type: string
+        password:
+          type: string
+        permission:
+          type: string
+    DeleteFormConfigRequest:
+      type: object
+      properties:
+        type:
+          type: string
+        step:
+          type: integer
+          format: int32
+    AddFormConfigRequest:
+      type: object
+      properties:
+        type:
+          type: string
+        step:
+          type: integer
+          format: int32
+        tabName:
+          type: string
+        tabIconUrl:
+          type: string
+        formData:
+          type: string
+    AddBusinessTypeRequest:
+      type: object
+      properties:
+        type:
+          type: string
+        typeValue:
+          type: string
+        imageUrl:
+          type: string
+    PartnerDto:
+      required:
+      - email
+      - mobile
+      - postalCode
+      type: object
+      properties:
+        addressLine:
+          type: string
+        city:
+          type: string
+        state:
+          type: integer
+          format: int64
+        landmark:
+          type: string
+        postalCode:
+          type: integer
+          format: int32
+        invalidStatus:
+          type: boolean
+        stateName:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        email:
+          type: string
+        fullName:
+          type: string
+        mobile:
+          maximum: 10
+          minimum: 0
+          type: integer
+          format: int64
+        businessName:
+          type: string
+        authorisedSignatory:
+          type: string
+        businessType:
+          type: string
+        partnershipType:
+          type: string
+          enum:
+          - CHANNEL_PARTNER
+          - FREELANCER
+          - FRANCHISE
+          - STUDY_ABROAD
+          - LC_PARTNER
+        sapCode:
+          pattern: ^[0-9]{10,11}$
+          type: string
+        partnerStages:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerStageDto'
+        regionalManagerId:
+          type: integer
+          format: int64
+        dateOfRegistration:
+          type: string
+          format: date-time
+        partnerDocuments:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/DocumentResponse'
+        regionalManagerEmail:
+          type: string
+        regionalManagerPhone:
+          type: integer
+          format: int64
+        partnerStatusSummary:
+          $ref: '#/components/schemas/PartnerStatusSummary'
+        regionalManagerFullName:
+          type: string
+        loggedRmId:
+          type: integer
+          format: int64
+    PartnerStageDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+        comment:
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusDto'
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        signDate:
+          type: string
+          format: date
+    PartnerStatusSummary:
+      type: object
+      properties:
+        registration:
+          type: string
+        document:
+          type: string
+        agreement:
+          type: string
+        dmsUploadId:
+          type: string
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    Predicate:
+      type: object
+    PageResponseTeamMemberResponseDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberResponseDto'
+    PageResponseTeamMemberDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberDto'
+    StoreFilterDto:
+      type: object
+      properties:
+        status:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        teamMemberId:
+          type: integer
+          format: int64
+        teamMemberIds:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        designation:
+          type: string
+    PageResponseResponseStoreDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResponseStoreDto'
+    ResponseStoreDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        storeName:
+          type: string
+        address:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pinCode:
+          type: integer
+          format: int32
+        fullAddress:
+          type: string
+        landmark:
+          type: string
+        status:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int64
+        managerId:
+          type: integer
+          format: int64
+        storeTeams:
+          $ref: '#/components/schemas/PageResponseTeamMemberResponseDto'
+        extraInfo:
+          type: object
+          additionalProperties:
+            type: object
+    PageResponsePartnerDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerDto'
+    ProspectFilterDto:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        teamMemberId:
+          type: integer
+          format: int64
+        teamMemberIds:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int64
+        userId:
+          type: integer
+          format: int64
+        leadId:
+          type: string
+        status:
+          type: integer
+          format: int32
+        goal:
+          type: array
+          items:
+            type: string
+        fullName:
+          type: string
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        city:
+          type: string
+        course:
+          type: string
+        platform:
+          type: string
+    PageResponseProspectDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProspectDto'
+    PageResponsePartnerInvoiceCreditNoteReportDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerInvoiceCreditNoteReportDto'
+    PartnerInvoiceCreditNoteReportDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        partnerId:
+          type: integer
+          format: int64
+        vendorName:
+          type: string
+        vendorType:
+          type: string
+        gstNumber:
+          type: string
+        type:
+          type: string
+        invoiceNoteNumber:
+          type: string
+        parentStatus:
+          type: string
+        parentDisposition:
+          type: string
+        created:
+          type: string
+          format: date
+        childStatus:
+          type: string
+        childDisposition:
+          type: string
+        amount:
+          type: number
+          format: double
+        totalWithoutTax:
+          type: number
+          format: double
+        totalGst:
+          type: number
+          format: double
+        dateOfApproval:
+          type: string
+          format: date
+        releaseDate:
+          type: string
+          format: date
+        receivedDate:
+          type: string
+          format: date
+        parentPartnerInvoiceStatusFlowId:
+          type: integer
+          format: int64
+        childPartnerInvoiceStatusFlowId:
+          type: integer
+          format: int64
+        dmsUploadId:
+          type: string
+        lastUpdatedById:
+          type: integer
+          format: int64
+        lastApprovedById:
+          type: integer
+          format: int64
+        month:
+          type: integer
+          format: int32
+        year:
+          type: integer
+          format: int32
+    LearnerInvoiceCreditNoteDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        partnerInvoiceId:
+          type: integer
+          format: int64
+        partnerId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        program:
+          type: string
+        ppk:
+          type: string
+        totalCommissionAmount:
+          type: number
+          format: double
+        commissionAmountWithoutGst:
+          type: number
+          format: double
+        commissionRate:
+          type: number
+          format: double
+        gstAmount:
+          type: number
+          format: double
+        eligibleAmountWithoutGst:
+          type: number
+          format: double
+        commissionRuleId:
+          type: integer
+          format: int64
+        programVertical:
+          type: string
+        commissionRuleSlabId:
+          type: integer
+          format: int64
+        firstTransactionDate:
+          type: string
+          format: date
+        type:
+          type: string
+        leadOwner:
+          type: string
+        paymentBatch:
+          type: string
+          format: date
+        currentBatch:
+          type: string
+          format: date
+        paymentStatus:
+          type: string
+        eligibleAmount:
+          type: number
+          format: double
+        businessName:
+          type: string
+        gstNumber:
+          type: string
+        leadOwnerName:
+          type: string
+        amountPaid:
+          type: number
+          format: double
+        pgCharges:
+          type: number
+          format: double
+        referralCharges:
+          type: number
+          format: double
+        emailId:
+          type: string
+        nsp:
+          type: number
+          format: double
+    PageResponseLearnerInvoiceCreditNoteDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/LearnerInvoiceCreditNoteDto'
+    InvoiceStatusFlowDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        disposition:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+    UserUploadedEventTempUrlDto:
+      type: object
+      properties:
+        tempUrl:
+          type: string
+    PartnerInvoiceCreditNoteDashboardDto:
+      type: object
+      properties:
+        type:
+          type: string
+        outStandingAmount:
+          type: number
+          format: double
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerInvoiceCreditNoteReportDto'
+    FetchFormConfigResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        step:
+          type: integer
+          format: int32
+        formData:
+          type: string
+        tabName:
+          type: string
+        tabIconUrl:
+          type: string
+    PageResponseCommissionRuleDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommissionRuleDto'
+    FetchBusinessTypeResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        typeValue:
+          type: string
+        iconUrl:
+          type: string
+  securitySchemes:
+    AUTH-TOKEN:
+      type: apiKey
+      name: AUTH-TOKEN
+      in: header

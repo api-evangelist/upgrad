@@ -1,18 +1,82 @@
 aid: upgrad
 name: upGrad
-description: 'upGrad is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'upGrad is an online higher-education and workforce-upskilling platform headquartered in Mumbai, India,
+  founded in 2015 by Ronnie Screwvala, Mayank Kumar and Phalgun Kompalli. It delivers degrees, executive certifications,
+  bootcamps and doctoral programmes in partnership with global universities including Liverpool John Moores University,
+  Golden Gate University, O.P. Jindal Global University, IIIT Bangalore, IIM Kozhikode and IIT Kharagpur, alongside
+  a study-abroad advisory business covering the USA, UK, Canada, Australia, Germany and Ireland. Its public API
+  surface is not a marketed developer programme: it is a large internal microservice estate on upgrad.com subdomains,
+  of which two Spring Boot services publish their springdoc OpenAPI 3.0.1 documents anonymously at /api-docs — a
+  Partner Service covering channel-partner onboarding, prospects, stores, team hierarchy, commission rules and partner
+  invoicing/credit notes, and a Learner Experience Analytics service covering reading-time leaderboards and micro-interaction
+  notifications.'
+image: https://prod-mphs.upgrad.com/hubfs/NF%20upGrad%20Assets/University%20Logos%20and%20Images/upGrad%20Logos/upgrad-logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/upgrad/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-02'
 modified: '2026-09-02'
 tags:
-- Company
-apis: []
+- Education
+- EdTech
+- Online Learning
+- Higher Education
+- Certification
+- Learning Analytics
+- Partner Management
+- India
+apis:
+- name: upGrad Partner Service API
+  description: 'Channel-partner operations API for upGrad''s referral and franchise network: partner onboarding
+    and KYC document upload/verification, prospect (lead) capture and status transitions, store and team-member
+    hierarchy management, commission rules, and partner invoice / credit-note reporting. 54 operations across 46
+    paths, secured by an AUTH-TOKEN API key header. The springdoc-generated OpenAPI is served anonymously at https://partner.upgrad.com/api-docs
+    while every operation itself requires credentials.'
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - Partner Management
+  - Referrals
+  - Commissions
+  - Invoicing
+  - Education
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-partner-openapi.yml
+  - type: OpenAPI
+    url: openapi/_original/upgrad-partner-openapi-original.json
+    name: Verbatim harvest
+  - type: Overlay
+    url: overlays/upgrad-partner-overlay.yaml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- name: upGrad Learner Experience Analytics API
+  description: 'Learner-experience analytics service behind upGrad''s learning platform: daily reading-time leaderboards
+    per course and per user, micro-interaction notification records, and administrative cache eviction for student
+    profiles. 6 operations across 6 paths, declaring an HTTP bearer (JWT) security scheme. The springdoc-generated
+    OpenAPI is served anonymously at https://learner-analytics-rest.upgrad.com/api-docs.'
+  humanURL: https://learner-analytics-rest.upgrad.com/api-docs
+  baseURL: https://learner-analytics-rest.upgrad.com
+  tags:
+  - Learning Analytics
+  - Leaderboards
+  - Notifications
+  - Education
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-learner-analytics-openapi.yml
+  - type: OpenAPI
+    url: openapi/_original/upgrad-learner-analytics-openapi-original.json
+    name: Verbatim harvest
+  - type: Overlay
+    url: overlays/upgrad-learner-analytics-overlay.yaml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +84,51 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.hiive.com/securities/upgrad-stock
+  url: https://www.upgrad.com/
+- type: About
+  url: https://www.upgrad.com/about/
+- type: Blog
+  url: https://www.upgrad.com/blog/
+- type: Support
+  url: https://www.upgrad.com/us/contact/
+- type: Login
+  url: https://learn.upgrad.com/
+- type: TermsOfService
+  url: https://www.upgrad.com/us/terms/
+- type: PrivacyPolicy
+  url: https://www.upgrad.com/us/privacy/
+- type: GitHubOrganization
+  url: https://github.com/upgrad
+- type: StatusPage
+  url: https://status.upgrad.com/
+- type: DomainSecurity
+  url: security/upgrad-domain-security.yml
+- type: LLMsTxt
+  url: llms/upgrad-llms.txt
+- type: Authentication
+  url: authentication/upgrad-authentication.yml
+- type: Conventions
+  url: conventions/upgrad-conventions.yml
+- type: ErrorCatalog
+  url: errors/upgrad-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/upgrad-lifecycle.yml
+- type: Conformance
+  url: conformance/upgrad-conformance.yml
+- type: DataModel
+  url: data-model/upgrad-data-model.yml
+- type: Packages
+  url: packages/upgrad-packages.yml
+- type: MCPServer
+  url: mcp/upgrad-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Plans
+  url: plans/upgrad-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/upgrad-rate-limits.yml
+x-enrichment:
+  date: '2026-09-02'
+  status: enriched
+  artifacts_added: 25
+  pass: local-v1

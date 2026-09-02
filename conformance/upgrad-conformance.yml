@@ -1,0 +1,81 @@
+generated: '2026-09-02'
+method: derived
+source: openapi/upgrad-partner-openapi.yml, openapi/upgrad-learner-analytics-openapi.yml, live host probes
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: 'Both contracts declare openapi: 3.0.1 and parse as valid OpenAPI'
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme in either contract
+- id: oidc
+  conforms: false
+  evidence: No openIdConnect scheme; /.well-known/openid-configuration 401 on both API hosts and soft-404 on www
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a vendor ErrorContext schema under media type */*, not application/problem+json
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: https://www.upgrad.com/.well-known/security.txt returned 403 AccessDenied
+- id: rfc8594-sunset
+  conforms: false
+  evidence: No Sunset or Deprecation header declared in either contract
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key header or parameter across 26 unsafe operations
+- id: pagination
+  conforms: true
+  evidence: Paged collections in both services - Spring Data pageable (partner) and pageNumber/pageSize (learner
+    analytics) - though neither documents an envelope
+- id: json-api
+  conforms: false
+  evidence: No JSON:API media type or document structure
+- id: scim2
+  conforms: false
+  evidence: Team-member and partner user management is bespoke; no urn:ietf:params:scim:schemas:* URN and no /Users
+    or /Groups resource
+- id: odata
+  conforms: false
+  evidence: No $metadata surface; filtering is a QueryDSL predicate parameter
+- id: a2a-agent-card
+  conforms: false
+  evidence: '/.well-known/agent-card.json and /.well-known/agent.json: soft-404 on www, 401 on both API hosts'
+domain_standards:
+  sector: education
+  summary: 'REWARD-ONLY dimension, and upGrad earns nothing here: neither published contract declares an education-sector
+    standard. The estate does run lti-service.upgrad.com and lti.upgrad.com, which is a genuine hint of an IMS Global
+    LTI integration for delivering upGrad content inside partner LMSs - but the hint could not be converted into
+    evidence: lti-service.upgrad.com returned 404 for /, /api-docs, /lti/config and /.well-known/jwks.json, and
+    lti.upgrad.com answered 200 with the same 2,224-byte SPA shell for every path including /.well-known/jwks.json.
+    No LTI platform or tool configuration is publicly served, so no conformance is asserted.'
+  candidates:
+  - id: ims-lti-1.3
+    conforms: false
+    probed:
+    - url: https://lti-service.upgrad.com/.well-known/jwks.json
+      status: 404
+    - url: https://lti-service.upgrad.com/lti/config
+      status: 404
+    - url: https://lti.upgrad.com/.well-known/jwks.json
+      status: 200
+      note: SPA shell, same body for every path - not a document
+  - id: ims-oneroster
+    conforms: false
+    evidence: No /ims/oneroster/ resource shape in either contract
+  - id: ims-caliper
+    conforms: false
+    evidence: Learner Analytics models reading-time leaderboards and micro-interactions in a bespoke shape, not
+      Caliper sensor/event envelopes
+  - id: xapi
+    conforms: false
+    evidence: No xAPI statement endpoint or actor/verb/object shape
+  - id: ims-qti
+    conforms: false
+    evidence: No assessment item contract is published
+  - id: oai-pmh
+    conforms: false
+    evidence: No OAI-PMH verb interface
+compliance_program:
+  published: false
+  note: No trust center, no named certification (SOC 2 / ISO 27001 / GDPR / PCI) is published on a probed upGrad
+    surface, and trust.upgrad.com does not resolve. No Compliance or TrustCenter pointer is emitted.
