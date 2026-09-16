@@ -27,62 +27,313 @@ tags:
 - Partner Management
 - India
 apis:
-- name: upGrad Partner Service API
-  description: 'Channel-partner operations API for upGrad''s referral and franchise network: partner onboarding
-    and KYC document upload/verification, prospect (lead) capture and status transitions, store and team-member
-    hierarchy management, commission rules, and partner invoice / credit-note reporting. 54 operations across 46
-    paths, secured by an AUTH-TOKEN API key header. The springdoc-generated OpenAPI is served anonymously at https://partner.upgrad.com/api-docs
-    while every operation itself requires credentials.'
+- aid: upgrad:upgrad-admin-controller-api
+  name: upGrad Admin Controller API
+  description: The admin-controller API from upGrad — 2 operation(s) for admin-controller.
   humanURL: https://partner.upgrad.com/api-docs
   baseURL: https://partner.upgrad.com
   tags:
-  - Partner Management
-  - Referrals
-  - Commissions
-  - Invoicing
-  - Education
+  - admin-controller
   properties:
   - type: OpenAPI
-    url: openapi/upgrad-partner-openapi.yml
-  - type: OpenAPI
-    url: openapi/_original/upgrad-partner-openapi-original.json
-    name: Verbatim harvest
-  - type: Overlay
-    url: overlays/upgrad-partner-overlay.yaml
+    url: openapi/upgrad-admin-controller-api-openapi.yml
   - type: Authentication
     url: authentication/upgrad-authentication.yml
   - type: ErrorCatalog
     url: errors/upgrad-problem-types.yml
   - type: DataModel
     url: data-model/upgrad-data-model.yml
-- name: upGrad Learner Experience Analytics API
-  description: 'Learner-experience analytics service behind upGrad''s learning platform: daily reading-time leaderboards
-    per course and per user, micro-interaction notification records, and administrative cache eviction for student
-    profiles. 6 operations across 6 paths, declaring an HTTP bearer (JWT) security scheme. The springdoc-generated
-    OpenAPI is served anonymously at https://learner-analytics-rest.upgrad.com/api-docs.'
-  humanURL: https://learner-analytics-rest.upgrad.com/api-docs
-  baseURL: https://learner-analytics-rest.upgrad.com
+- aid: upgrad:upgrad-business-type-controller-api
+  name: upGrad Business Type Controller API
+  description: >-
+    The business-type-controller API from upGrad — 2 operation(s) for business-type-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
   tags:
-  - Learning Analytics
-  - Leaderboards
-  - Notifications
-  - Education
+  - business-type-controller
   properties:
   - type: OpenAPI
-    url: openapi/upgrad-learner-analytics-openapi.yml
-  - type: OpenAPI
-    url: openapi/_original/upgrad-learner-analytics-openapi-original.json
-    name: Verbatim harvest
-  - type: Overlay
-    url: overlays/upgrad-learner-analytics-overlay.yaml
+    url: openapi/upgrad-business-type-controller-api-openapi.yml
   - type: Authentication
     url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-commission-rule-controller-api
+  name: upGrad Commission Rule Controller API
+  description: >-
+    The commission-rule-controller API from upGrad — 2 operation(s) for commission-rule-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - commission-rule-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-commission-rule-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-form-config-controller-api
+  name: upGrad Form Config Controller API
+  description: The form-config-controller API from upGrad — 3 operation(s) for form-config-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - form-config-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-form-config-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-leader-board-controller-api
+  name: upGrad Leader Board Controller API
+  description: >-
+    The leader-board-controller API from upGrad — 2 operation(s) for leader-board-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - leader-board-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-leader-board-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-learner-invoice-credit-note-controller-api
+  name: upGrad Learner Invoice Credit Note Controller API
+  description: >-
+    The learner-invoice-credit-note-controller API from upGrad — 1 operation(s) for learner-invoice-credit-note-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - learner-invoice-credit-note-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-learner-invoice-credit-note-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-login-list-controller-api
+  name: upGrad Login List Controller API
+  description: The login-list-controller API from upGrad — 2 operation(s) for login-list-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - login-list-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-login-list-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-login-list-upload-controller-api
+  name: upGrad Login List Upload Controller API
+  description: >-
+    The login-list-upload-controller API from upGrad — 1 operation(s) for login-list-upload-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - login-list-upload-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-login-list-upload-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-master-data-controller-api
+  name: upGrad Master Data Controller API
+  description: The master-data-controller API from upGrad — 1 operation(s) for master-data-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - master-data-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-master-data-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-micro-interaction-notification-controller-api
+  name: upGrad Micro Interaction Notification Controller API
+  description: >-
+    The micro-interaction-notification-controller API from upGrad — 2 operation(s) for micro-interaction-notification-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - micro-interaction-notification-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-micro-interaction-notification-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-partner-controller-api
+  name: upGrad Partner Controller API
+  description: The partner-controller API from upGrad — 6 operation(s) for partner-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - partner-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-partner-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-partner-document-controller-api
+  name: upGrad Partner Document Controller API
+  description: >-
+    The partner-document-controller API from upGrad — 4 operation(s) for partner-document-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - partner-document-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-partner-document-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-partner-invoice-credit-note-controller-api
+  name: upGrad Partner Invoice Credit Note Controller API
+  description: >-
+    The partner-invoice-credit-note-controller API from upGrad — 6 operation(s) for partner-invoice-credit-note-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - partner-invoice-credit-note-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-partner-invoice-credit-note-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-program-key-cache-controller-api
+  name: upGrad Program Key Cache Controller API
+  description: >-
+    The program-key-cache-controller API from upGrad — 2 operation(s) for program-key-cache-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - program-key-cache-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-program-key-cache-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-prospect-controller-api
+  name: upGrad Prospect Controller API
+  description: The prospect-controller API from upGrad — 3 operation(s) for prospect-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - prospect-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-prospect-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-status-controller-api
+  name: upGrad Status Controller API
+  description: The status-controller API from upGrad — 3 operation(s) for status-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - status-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-status-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-store-controller-api
+  name: upGrad Store Controller API
+  description: The store-controller API from upGrad — 2 operation(s) for store-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - store-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-store-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
+- aid: upgrad:upgrad-team-member-controller-api
+  name: upGrad Team Member Controller API
+  description: The team-member-controller API from upGrad — 6 operation(s) for team-member-controller.
+  humanURL: https://partner.upgrad.com/api-docs
+  baseURL: https://partner.upgrad.com
+  tags:
+  - team-member-controller
+  properties:
+  - type: OpenAPI
+    url: openapi/upgrad-team-member-controller-api-openapi.yml
+  - type: Authentication
+    url: authentication/upgrad-authentication.yml
+  - type: ErrorCatalog
+    url: errors/upgrad-problem-types.yml
+  - type: DataModel
+    url: data-model/upgrad-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/upgrad-partner-overlay.yaml
+- type: Overlay
+  url: overlays/upgrad-learner-analytics-overlay.yaml
 - type: Website
   url: https://www.upgrad.com/
 - type: About
