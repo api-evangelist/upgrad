@@ -1,0 +1,407 @@
+openapi: 3.2.0
+info:
+  title: Partner Service Commission Rule Controller API
+  license:
+    name: Apache 2.0
+    url: https://upgrad.com
+  version: '1'
+servers:
+- url: https://partner.upgrad.com
+  description: Generated server url
+security:
+- AUTH-TOKEN: []
+tags:
+- name: commission-rule-controller
+paths:
+  /commission-rule:
+    get:
+      tags:
+      - commission-rule-controller
+      operationId: getCommissionRules
+      parameters:
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseCommissionRuleDto'
+      summary: Get commission rules
+      x-summary-source: derived
+    put:
+      tags:
+      - commission-rule-controller
+      operationId: updateCommissionRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommissionRuleDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+      summary: Update commission rule
+      x-summary-source: derived
+    post:
+      tags:
+      - commission-rule-controller
+      operationId: saveCommissionRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommissionRuleDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+      summary: Save commission rule
+      x-summary-source: derived
+  /commission-rule/{commissionId}:
+    get:
+      tags:
+      - commission-rule-controller
+      operationId: getCommissionDetail
+      parameters:
+      - name: commissionId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CommissionRuleDto'
+      summary: Get commission detail
+      x-summary-source: derived
+components:
+  schemas:
+    Predicate:
+      type: object
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    PageResponseCommissionRuleDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommissionRuleDto'
+    CommissionRuleDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        partnerDetail:
+          type: string
+          enum:
+          - GST_PARTNER
+          - NON_GST_PARTNER
+          - PARTNER_SPECIFIC
+        partnerType:
+          type: string
+          enum:
+          - FP
+          - CP
+          - CP_SA
+          - LC
+        partnerId:
+          type: integer
+          format: int64
+        programType:
+          type: string
+          enum:
+          - PROGRAM_VERTICAL
+          - PROGRAM_SPECIFIC
+        programVertical:
+          type: string
+        programKey:
+          type: string
+        commissionType:
+          type: string
+          enum:
+          - FIXED
+          - SLAB_AMOUNT
+          - SLAB_ENROLLMENT
+        commission:
+          type: number
+          format: double
+        applicableFromDate:
+          type: string
+          format: date
+        parentRuleId:
+          type: integer
+          format: int64
+        archivedAt:
+          type: string
+          format: date
+        commissionRuleSlab:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommissionRuleSlabDto'
+        lastUpdatedById:
+          type: integer
+          format: int64
+        lastUpdated:
+          type: string
+          format: date-time
+    CommissionRuleSlabDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        commissionRuleId:
+          type: integer
+          format: int64
+        minLimit:
+          type: number
+          format: double
+        maxLimit:
+          type: number
+          format: double
+        commission:
+          type: number
+          format: double
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    AUTH-TOKEN:
+      type: apiKey
+      name: AUTH-TOKEN
+      in: header

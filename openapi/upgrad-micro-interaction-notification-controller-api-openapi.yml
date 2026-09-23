@@ -1,0 +1,181 @@
+openapi: 3.2.0
+info:
+  title: Learner Experience - Analytics Rest Service Micro…
+  version: 1.0.0
+servers:
+- url: https://learner-analytics-rest.upgrad.com
+  description: Generated server url
+tags:
+- name: micro-interaction-notification-controller
+paths:
+  /micro-interaction-notification/{microInteractionType}:
+    get:
+      tags:
+      - micro-interaction-notification-controller
+      summary: Get Micro-Interaction notification for given criteria
+      description: Get status of microInteraction by micro interaction type in request
+      operationId: getUserMicroInteractionNotification
+      parameters:
+      - name: microInteractionType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: courseId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: notificationDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserMicroInteractionNotify'
+      security:
+      - Authorization: []
+  /micro-interaction-notification:
+    post:
+      tags:
+      - micro-interaction-notification-controller
+      summary: Create micro interaction record
+      description: Add micro interaction type entry.
+      operationId: saveMicroInteractionNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserMicroInteractionNotify'
+        required: true
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserMicroInteractionNotify'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    UserMicroInteractionNotify:
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        courseId:
+          type: integer
+          format: int64
+        interactionType:
+          type: string
+        notificationDate:
+          type: string
+          format: date
+    ErrorContext:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        messages:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    Authorization:
+      type: http
+      name: Authorization
+      in: header
+      scheme: bearer
+      bearerFormat: JWT

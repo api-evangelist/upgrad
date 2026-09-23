@@ -1,0 +1,36 @@
+# Front Door AI Index — upgrad — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: upgrad
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.upgrad.com
+  final_host: www.upgrad.com
+  ownership: own
+  owner: upgrad
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 105
+  host_score: 105
+  density: 24.75
+  words: 4243
+  tiers:
+    agentic: 15
+    core: 86
+    model: 4
+  ambiguous: 11
+  top_terms:
+    AI: 72
+    agentic: 12
+    intelligence: 9
+    machine learning: 6
+    generative ai: 4
+    artificial intelligence: 3
+    ChatGPT: 2
+    copilot: 2
+    smart: 2
+    Claude: 1
+    GPT: 1
+    deep learning: 1

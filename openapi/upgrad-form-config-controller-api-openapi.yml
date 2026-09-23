@@ -1,0 +1,282 @@
+openapi: 3.2.0
+info:
+  title: Partner Service Form Config Controller API
+  license:
+    name: Apache 2.0
+    url: https://upgrad.com
+  version: '1'
+servers:
+- url: https://partner.upgrad.com
+  description: Generated server url
+security:
+- AUTH-TOKEN: []
+tags:
+- name: form-config-controller
+paths:
+  /form-config/delete-form:
+    post:
+      tags:
+      - form-config-controller
+      operationId: deleteFormConfigStep
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteFormConfigRequest'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+      summary: Delete form config step
+      x-summary-source: derived
+  /form-config/add:
+    post:
+      tags:
+      - form-config-controller
+      operationId: addFormConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddFormConfigRequest'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+      summary: Add form config
+      x-summary-source: derived
+  /form-config/{partner}:
+    get:
+      tags:
+      - form-config-controller
+      operationId: fetchAllFormConfigByPartner
+      parameters:
+      - name: partner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: platformType
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FetchFormConfigResponse'
+      summary: Fetch all form config by partner
+      x-summary-source: derived
+components:
+  schemas:
+    AddFormConfigRequest:
+      type: object
+      properties:
+        type:
+          type: string
+        step:
+          type: integer
+          format: int32
+        tabName:
+          type: string
+        tabIconUrl:
+          type: string
+        formData:
+          type: string
+    FetchFormConfigResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        step:
+          type: integer
+          format: int32
+        formData:
+          type: string
+        tabName:
+          type: string
+        tabIconUrl:
+          type: string
+    DeleteFormConfigRequest:
+      type: object
+      properties:
+        type:
+          type: string
+        step:
+          type: integer
+          format: int32
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+  securitySchemes:
+    AUTH-TOKEN:
+      type: apiKey
+      name: AUTH-TOKEN
+      in: header

@@ -1,0 +1,210 @@
+openapi: 3.2.0
+info:
+  title: Learner Experience - Analytics Rest Service Leader Board…
+  version: 1.0.0
+servers:
+- url: https://learner-analytics-rest.upgrad.com
+  description: Generated server url
+tags:
+- name: leader-board-controller
+paths:
+  /leaderboard/reading-time/daily/course/{courseId}:
+    get:
+      tags:
+      - leader-board-controller
+      summary: Reading Time Current Day LeaderBoard
+      description: By default it will fetch first 10 users by Rank. Optionally you can specify the range. Max Range Allowed is 30 Learners
+      operationId: getUserReadingTimeLeaderBoardForCurrentDay
+      parameters:
+      - name: courseId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: pageNumber
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: pageSize
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LearnerReadingTimeStatsDto'
+      security:
+      - Authorization: []
+  /leaderboard/reading-time/daily/user/{userId}:
+    get:
+      tags:
+      - leader-board-controller
+      summary: Current Day Reading Time Rank for User
+      operationId: getUserReadingTimeLeaderBoardForCurrentDay_1
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: courseId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LearnerReadingTimeStatsDto'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    AddressDto:
+      type: object
+      properties:
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+    StudentProfileDto:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        emailId:
+          type: string
+        profilePicUrl:
+          type: string
+        address:
+          $ref: '#/components/schemas/AddressDto'
+    LearnerReadingTimeStatsDto:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        courseId:
+          type: integer
+          format: int64
+        currentDayReadingTime:
+          type: number
+          format: double
+        currentDayReadingTimeRank:
+          type: integer
+          format: int64
+        studentProfile:
+          $ref: '#/components/schemas/StudentProfileDto'
+    ErrorContext:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        messages:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    Authorization:
+      type: http
+      name: Authorization
+      in: header
+      scheme: bearer
+      bearerFormat: JWT

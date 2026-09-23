@@ -1,0 +1,832 @@
+openapi: 3.2.0
+info:
+  title: Partner Service Team Member Controller API
+  license:
+    name: Apache 2.0
+    url: https://upgrad.com
+  version: '1'
+servers:
+- url: https://partner.upgrad.com
+  description: Generated server url
+security:
+- AUTH-TOKEN: []
+tags:
+- name: team-member-controller
+paths:
+  /team-member/{teamMemberId}:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getTeamMemberDetail
+      parameters:
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TeamMemberResponseDto'
+      summary: Get team member detail
+      x-summary-source: derived
+    put:
+      tags:
+      - team-member-controller
+      operationId: partialUpdateTeamMember
+      parameters:
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+      summary: Partial update team member
+      x-summary-source: derived
+  /team-member:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getTeamMembers
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTeamMemberResponseDto'
+      summary: Get team members
+      x-summary-source: derived
+    post:
+      tags:
+      - team-member-controller
+      operationId: saveTeamMember
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamMemberDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TeamMemberResponseDto'
+      summary: Save team member
+      x-summary-source: derived
+  /team-member/business-owner/{userId}:
+    post:
+      tags:
+      - team-member-controller
+      operationId: createBusinessOwnerAsMember
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+      summary: Create business owner as member
+      x-summary-source: derived
+  /team-member/{userId}/manager/{teamMemberId}:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getTeamMembersByManger
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTeamMemberResponseDto'
+      summary: Get team members by manger
+      x-summary-source: derived
+  /team-member/{teamMemberId}/hierarchy:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getTeamHierarchy
+      parameters:
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseTeamMemberDto'
+      summary: Get team hierarchy
+      x-summary-source: derived
+  /team-member/{teamMemberId}/count:
+    get:
+      tags:
+      - team-member-controller
+      operationId: getMemberAndProspectAndStoreCount
+      parameters:
+      - name: teamMemberId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: userType
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+      summary: Get member and prospect and store count
+      x-summary-source: derived
+components:
+  schemas:
+    StoreDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        storeName:
+          type: string
+        address:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pinCode:
+          type: integer
+          format: int32
+        fullAddress:
+          type: string
+        landmark:
+          type: string
+        status:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int64
+        managerId:
+          type: integer
+          format: int64
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    Predicate:
+      type: object
+    PageResponseTeamMemberResponseDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberResponseDto'
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    TeamMemberResponseDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        fullName:
+          type: string
+        role:
+          type: string
+        alternateEmail:
+          type: string
+        password:
+          type: string
+        permission:
+          type: string
+        teamMemberId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        designation:
+          type: string
+        addMemberAllowed:
+          type: boolean
+        lsqEmail:
+          type: string
+        status:
+          type: string
+          enum:
+          - Invited
+          - Registered
+          - Deactivated
+        degreeEmail:
+          type: string
+        managerDetail:
+          $ref: '#/components/schemas/MemberDto'
+        storeDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/StoreDto'
+        totalMember:
+          type: integer
+          format: int64
+    PageResponseTeamMemberDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberDto'
+    TeamMemberDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        fullName:
+          type: string
+        role:
+          type: string
+        alternateEmail:
+          type: string
+        password:
+          type: string
+        permission:
+          type: string
+        teamMemberId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        designation:
+          type: string
+        addMemberAllowed:
+          type: boolean
+        lsqEmail:
+          type: string
+        status:
+          type: string
+          enum:
+          - Invited
+          - Registered
+          - Deactivated
+        degreeEmail:
+          type: string
+        storeId:
+          type: integer
+          format: int64
+        managerId:
+          type: integer
+          format: int64
+        storeManager:
+          type: boolean
+    MemberDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        fullName:
+          type: string
+        role:
+          type: string
+        alternateEmail:
+          type: string
+        password:
+          type: string
+        permission:
+          type: string
+        teamMemberId:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        designation:
+          type: string
+        addMemberAllowed:
+          type: boolean
+        lsqEmail:
+          type: string
+        status:
+          type: string
+          enum:
+          - Invited
+          - Registered
+          - Deactivated
+        degreeEmail:
+          type: string
+  securitySchemes:
+    AUTH-TOKEN:
+      type: apiKey
+      name: AUTH-TOKEN
+      in: header

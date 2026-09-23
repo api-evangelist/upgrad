@@ -1,0 +1,794 @@
+openapi: 3.2.0
+info:
+  title: Partner Service Partner Controller API
+  license:
+    name: Apache 2.0
+    url: https://upgrad.com
+  version: '1'
+servers:
+- url: https://partner.upgrad.com
+  description: Generated server url
+security:
+- AUTH-TOKEN: []
+tags:
+- name: partner-controller
+paths:
+  /vpc-only/user/{userId}/vendorCode:
+    put:
+      tags:
+      - partner-controller
+      operationId: updateVendorCode
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: vendorCode
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+      summary: Update vendor code
+      x-summary-source: derived
+  /user/{userId}/address-status:
+    put:
+      tags:
+      - partner-controller
+      operationId: updateAddressStatus
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: status
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+      summary: Update address status
+      x-summary-source: derived
+  /update-rm-id:
+    put:
+      tags:
+      - partner-controller
+      operationId: updateRmId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRmIdDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+      summary: Update rm id
+      x-summary-source: derived
+  /user/{userId}/partner-detail:
+    get:
+      tags:
+      - partner-controller
+      operationId: getPartnerInfo
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PartnerDto'
+      summary: Get partner info
+      x-summary-source: derived
+    post:
+      tags:
+      - partner-controller
+      operationId: savePartnerDetails
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerBaseDto'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+      summary: Save partner details
+      x-summary-source: derived
+  /sap/ug-partners:
+    get:
+      tags:
+      - partner-controller
+      operationId: getUgPartners
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponsePartnerDto'
+      summary: Get ug partners
+      x-summary-source: derived
+  /partner-list:
+    get:
+      tags:
+      - partner-controller
+      operationId: getPartners
+      parameters:
+      - name: pageable
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Pageable'
+      - name: predicate
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/Predicate'
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: mobile
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '409':
+          description: Conflict
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '405':
+          description: Method Not Allowed
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '503':
+          description: Service Unavailable
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '429':
+          description: Too Many Requests
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorContext'
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponsePartnerDto'
+      summary: Get partners
+      x-summary-source: derived
+components:
+  schemas:
+    PartnerBaseDto:
+      required:
+      - email
+      - mobile
+      - postalCode
+      type: object
+      properties:
+        addressLine:
+          type: string
+        city:
+          type: string
+        state:
+          type: integer
+          format: int64
+        landmark:
+          type: string
+        postalCode:
+          type: integer
+          format: int32
+        invalidStatus:
+          type: boolean
+        stateName:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        email:
+          type: string
+        fullName:
+          type: string
+        mobile:
+          maximum: 10
+          minimum: 0
+          type: integer
+          format: int64
+        businessName:
+          type: string
+        authorisedSignatory:
+          type: string
+        businessType:
+          type: string
+        partnershipType:
+          type: string
+          enum:
+          - CHANNEL_PARTNER
+          - FREELANCER
+          - FRANCHISE
+          - STUDY_ABROAD
+          - LC_PARTNER
+        sapCode:
+          pattern: ^[0-9]{10,11}$
+          type: string
+    Predicate:
+      type: object
+    PageResponsePartnerDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerDto'
+    PartnerDto:
+      required:
+      - email
+      - mobile
+      - postalCode
+      type: object
+      properties:
+        addressLine:
+          type: string
+        city:
+          type: string
+        state:
+          type: integer
+          format: int64
+        landmark:
+          type: string
+        postalCode:
+          type: integer
+          format: int32
+        invalidStatus:
+          type: boolean
+        stateName:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        email:
+          type: string
+        fullName:
+          type: string
+        mobile:
+          maximum: 10
+          minimum: 0
+          type: integer
+          format: int64
+        businessName:
+          type: string
+        authorisedSignatory:
+          type: string
+        businessType:
+          type: string
+        partnershipType:
+          type: string
+          enum:
+          - CHANNEL_PARTNER
+          - FREELANCER
+          - FRANCHISE
+          - STUDY_ABROAD
+          - LC_PARTNER
+        sapCode:
+          pattern: ^[0-9]{10,11}$
+          type: string
+        partnerStages:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerStageDto'
+        regionalManagerId:
+          type: integer
+          format: int64
+        dateOfRegistration:
+          type: string
+          format: date-time
+        partnerDocuments:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/DocumentResponse'
+        regionalManagerEmail:
+          type: string
+        regionalManagerPhone:
+          type: integer
+          format: int64
+        partnerStatusSummary:
+          $ref: '#/components/schemas/PartnerStatusSummary'
+        regionalManagerFullName:
+          type: string
+        loggedRmId:
+          type: integer
+          format: int64
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    PartnerStageDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+        comment:
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusDto'
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        signDate:
+          type: string
+          format: date
+    StatusDto:
+      type: object
+      properties:
+        label:
+          type: string
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+    PartnerStatusSummary:
+      type: object
+      properties:
+        registration:
+          type: string
+        document:
+          type: string
+        agreement:
+          type: string
+        dmsUploadId:
+          type: string
+    CoPartnerDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        mobile:
+          type: string
+        type:
+          type: string
+    DocumentResponse:
+      type: object
+      properties:
+        coPartner:
+          $ref: '#/components/schemas/CoPartnerDto'
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentDto'
+        status:
+          type: string
+    UpdateRmIdDto:
+      type: object
+      properties:
+        rmId:
+          type: integer
+          format: int64
+        partnerId:
+          type: array
+          items:
+            type: integer
+            format: int64
+    DocumentDto:
+      type: object
+      properties:
+        docAttributes:
+          type: object
+          additionalProperties:
+            type: string
+        documentConfigCode:
+          type: string
+        status:
+          type: integer
+          format: int64
+        dmsUploadId:
+          type: string
+        statusLabel:
+          type: string
+        comments:
+          type: string
+        fileLabel:
+          type: string
+        documentUrl:
+          type: string
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    AUTH-TOKEN:
+      type: apiKey
+      name: AUTH-TOKEN
+      in: header
