@@ -147,17 +147,6 @@ paths:
       - Authorization: []
 components:
   schemas:
-    AddressDto:
-      type: object
-      properties:
-        address1:
-          type: string
-        address2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
     StudentProfileDto:
       type: object
       properties:
@@ -201,6 +190,17 @@ components:
           type: array
           items:
             type: string
+    AddressDto:
+      type: object
+      properties:
+        address1:
+          type: string
+        address2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
   securitySchemes:
     Authorization:
       type: http

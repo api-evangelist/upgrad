@@ -93,21 +93,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Predicate:
-      type: object
-    ErrorContext:
+    Pageable:
       type: object
       properties:
-        errorCode:
-          type: string
-        messages:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
           type: array
           items:
             type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     LearnerInvoiceCreditNoteDto:
       type: object
       properties:
@@ -188,6 +188,21 @@ components:
         nsp:
           type: number
           format: double
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    Predicate:
+      type: object
     PageResponseLearnerInvoiceCreditNoteDto:
       type: object
       properties:
@@ -198,21 +213,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LearnerInvoiceCreditNoteDto'
-    Pageable:
-      type: object
-      properties:
-        page:
-          minimum: 0
-          type: integer
-          format: int32
-        size:
-          minimum: 1
-          type: integer
-          format: int32
-        sort:
-          type: array
-          items:
-            type: string
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

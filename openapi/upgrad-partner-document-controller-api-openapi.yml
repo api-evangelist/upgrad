@@ -330,28 +330,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DocumentVerifyRequest:
-      type: object
-      properties:
-        userUploadEventId:
-          type: string
-        verified:
-          type: boolean
-        comments:
-          type: string
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     CoPartnerDto:
       type: object
       properties:
@@ -363,17 +341,6 @@ components:
         mobile:
           type: string
         type:
-          type: string
-    DocumentResponse:
-      type: object
-      properties:
-        coPartner:
-          $ref: '#/components/schemas/CoPartnerDto'
-        documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/DocumentDto'
-        status:
           type: string
     DMSUploadResponse:
       type: object
@@ -401,6 +368,39 @@ components:
         fileLabel:
           type: string
         documentUrl:
+          type: string
+    DocumentResponse:
+      type: object
+      properties:
+        coPartner:
+          $ref: '#/components/schemas/CoPartnerDto'
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentDto'
+        status:
+          type: string
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    DocumentVerifyRequest:
+      type: object
+      properties:
+        userUploadEventId:
+          type: string
+        verified:
+          type: boolean
+        comments:
           type: string
   securitySchemes:
     AUTH-TOKEN:

@@ -226,6 +226,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
     AddFormConfigRequest:
       type: object
       properties:
@@ -240,6 +253,14 @@ components:
           type: string
         formData:
           type: string
+    DeleteFormConfigRequest:
+      type: object
+      properties:
+        type:
+          type: string
+        step:
+          type: integer
+          format: int32
     FetchFormConfigResponse:
       type: object
       properties:
@@ -254,27 +275,6 @@ components:
           type: string
         tabIconUrl:
           type: string
-    DeleteFormConfigRequest:
-      type: object
-      properties:
-        type:
-          type: string
-        step:
-          type: integer
-          format: int32
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey
