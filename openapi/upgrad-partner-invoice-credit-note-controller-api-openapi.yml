@@ -506,6 +506,18 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    InvoiceStatusFlowDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        disposition:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
     Pageable:
       type: object
       properties:
@@ -589,16 +601,6 @@ components:
         year:
           type: integer
           format: int32
-    PageResponsePartnerInvoiceCreditNoteReportDto:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int64
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PartnerInvoiceCreditNoteReportDto'
     ErrorContext:
       type: object
       properties:
@@ -612,18 +614,16 @@ components:
           type: object
           additionalProperties:
             type: object
-    InvoiceStatusFlowDto:
+    PageResponsePartnerInvoiceCreditNoteReportDto:
       type: object
       properties:
-        id:
+        total:
           type: integer
           format: int64
-        disposition:
-          type: string
-        status:
-          type: string
-        type:
-          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartnerInvoiceCreditNoteReportDto'
     UserUploadedEventTempUrlDto:
       type: object
       properties:

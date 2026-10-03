@@ -246,16 +246,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    StatusDto:
-      type: object
-      properties:
-        label:
-          type: string
-        id:
-          type: integer
-          format: int64
-        type:
-          type: string
     UpdatePartnerStageRequestDto:
       type: object
       properties:
@@ -287,6 +277,16 @@ components:
           type: object
           additionalProperties:
             type: object
+    StatusDto:
+      type: object
+      properties:
+        label:
+          type: string
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

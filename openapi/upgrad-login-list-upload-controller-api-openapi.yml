@@ -79,19 +79,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     LoginListUploadDto:
       type: object
       properties:
@@ -112,6 +99,19 @@ components:
           - NEW
           - PROGRESS
           - ARCHIVE
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

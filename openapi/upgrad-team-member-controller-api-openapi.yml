@@ -641,16 +641,6 @@ components:
           type: array
           items:
             type: string
-    PageResponseTeamMemberDto:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int64
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamMemberDto'
     MemberDto:
       type: object
       properties:
@@ -695,19 +685,6 @@ components:
           - Deactivated
         degreeEmail:
           type: string
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     TeamMemberDto:
       type: object
       properties:
@@ -770,6 +747,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TeamMemberResponseDto'
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    Predicate:
+      type: object
     TeamMemberResponseDto:
       type: object
       properties:
@@ -823,8 +815,16 @@ components:
         totalMember:
           type: integer
           format: int64
-    Predicate:
+    PageResponseTeamMemberDto:
       type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberDto'
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

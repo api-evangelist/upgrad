@@ -383,80 +383,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    StoreDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        storeName:
-          type: string
-        address:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        pinCode:
-          type: integer
-          format: int32
-        fullAddress:
-          type: string
-        landmark:
-          type: string
-        status:
-          type: integer
-          format: int32
-        userId:
-          type: integer
-          format: int64
-        managerId:
-          type: integer
-          format: int64
-    ResponseStoreDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        storeName:
-          type: string
-        address:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        pinCode:
-          type: integer
-          format: int32
-        fullAddress:
-          type: string
-        landmark:
-          type: string
-        status:
-          type: integer
-          format: int32
-        userId:
-          type: integer
-          format: int64
-        managerId:
-          type: integer
-          format: int64
-        storeTeams:
-          $ref: '#/components/schemas/PageResponseTeamMemberResponseDto'
-        extraInfo:
-          type: object
-          additionalProperties:
-            type: object
     Pageable:
       type: object
       properties:
@@ -496,6 +422,16 @@ components:
           format: int64
         designation:
           type: string
+    PageResponseTeamMemberResponseDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMemberResponseDto'
     MemberDto:
       type: object
       properties:
@@ -540,6 +476,31 @@ components:
           - Deactivated
         degreeEmail:
           type: string
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    PageResponseResponseStoreDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResponseStoreDto'
+    Predicate:
+      type: object
     TeamMemberResponseDto:
       type: object
       properties:
@@ -593,41 +554,80 @@ components:
         totalMember:
           type: integer
           format: int64
-    PageResponseTeamMemberResponseDto:
+    ResponseStoreDto:
       type: object
       properties:
-        total:
+        id:
           type: integer
           format: int64
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamMemberResponseDto'
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
+        storeName:
           type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
+        address:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pinCode:
+          type: integer
+          format: int32
+        fullAddress:
+          type: string
+        landmark:
+          type: string
+        status:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int64
+        managerId:
+          type: integer
+          format: int64
+        storeTeams:
+          $ref: '#/components/schemas/PageResponseTeamMemberResponseDto'
+        extraInfo:
           type: object
           additionalProperties:
             type: object
-    PageResponseResponseStoreDto:
+    StoreDto:
       type: object
       properties:
-        total:
+        id:
           type: integer
           format: int64
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResponseStoreDto'
-    Predicate:
-      type: object
+        storeName:
+          type: string
+        address:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pinCode:
+          type: integer
+          format: int32
+        fullAddress:
+          type: string
+        landmark:
+          type: string
+        status:
+          type: integer
+          format: int32
+        userId:
+          type: integer
+          format: int64
+        managerId:
+          type: integer
+          format: int64
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

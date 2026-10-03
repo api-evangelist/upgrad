@@ -108,6 +108,21 @@ components:
           type: array
           items:
             type: string
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    Predicate:
+      type: object
     LearnerInvoiceCreditNoteDto:
       type: object
       properties:
@@ -188,21 +203,6 @@ components:
         nsp:
           type: number
           format: double
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    Predicate:
-      type: object
     PageResponseLearnerInvoiceCreditNoteDto:
       type: object
       properties:

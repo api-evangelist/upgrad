@@ -298,21 +298,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Pageable:
-      type: object
-      properties:
-        page:
-          minimum: 0
-          type: integer
-          format: int32
-        size:
-          minimum: 1
-          type: integer
-          format: int32
-        sort:
-          type: array
-          items:
-            type: string
     UserDto:
       type: object
       properties:
@@ -337,6 +322,80 @@ components:
           type: string
         permission:
           type: string
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    ProspectFilterDto:
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        teamMemberId:
+          type: integer
+          format: int64
+        teamMemberIds:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int64
+        userId:
+          type: integer
+          format: int64
+        leadId:
+          type: string
+        status:
+          type: integer
+          format: int32
+        goal:
+          type: array
+          items:
+            type: string
+        fullName:
+          type: string
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        city:
+          type: string
+        course:
+          type: string
+        platform:
+          type: string
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
     ProspectDto:
       type: object
       properties:
@@ -389,19 +448,6 @@ components:
           type: string
         courseName:
           type: string
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     PageResponseProspectDto:
       type: object
       properties:
@@ -412,52 +458,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ProspectDto'
-    ProspectFilterDto:
-      type: object
-      properties:
-        startDate:
-          type: string
-          format: date-time
-        endDate:
-          type: string
-          format: date-time
-        teamMemberId:
-          type: integer
-          format: int64
-        teamMemberIds:
-          uniqueItems: true
-          type: array
-          items:
-            type: integer
-            format: int64
-        userId:
-          type: integer
-          format: int64
-        leadId:
-          type: string
-        status:
-          type: integer
-          format: int32
-        goal:
-          type: array
-          items:
-            type: string
-        fullName:
-          type: string
-        email:
-          type: string
-        mobile:
-          type: integer
-          format: int64
-        countryCode:
-          type: integer
-          format: int32
-        city:
-          type: string
-        course:
-          type: string
-        platform:
-          type: string
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

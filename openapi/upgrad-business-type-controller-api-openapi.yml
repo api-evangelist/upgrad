@@ -147,19 +147,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     FetchBusinessTypeResponse:
       type: object
       properties:
@@ -178,6 +165,19 @@ components:
           type: string
         imageUrl:
           type: string
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey
