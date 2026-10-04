@@ -298,30 +298,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UserDto:
+    ErrorContext:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        email:
+        errorCode:
           type: string
-        mobile:
-          type: integer
-          format: int64
-        countryCode:
-          type: integer
-          format: int32
-        fullName:
-          type: string
-        role:
-          type: string
-        alternateEmail:
-          type: string
-        password:
-          type: string
-        permission:
-          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
     Pageable:
       type: object
       properties:
@@ -383,19 +372,40 @@ components:
           type: string
         platform:
           type: string
-    ErrorContext:
+    PageResponseProspectDto:
       type: object
       properties:
-        errorCode:
-          type: string
-        messages:
+        total:
+          type: integer
+          format: int64
+        data:
           type: array
           items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
+            $ref: '#/components/schemas/ProspectDto'
+    UserDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+        mobile:
+          type: integer
+          format: int64
+        countryCode:
+          type: integer
+          format: int32
+        fullName:
+          type: string
+        role:
+          type: string
+        alternateEmail:
+          type: string
+        password:
+          type: string
+        permission:
+          type: string
     ProspectDto:
       type: object
       properties:
@@ -448,16 +458,6 @@ components:
           type: string
         courseName:
           type: string
-    PageResponseProspectDto:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int64
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProspectDto'
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

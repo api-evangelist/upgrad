@@ -246,6 +246,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
     UpdatePartnerStageRequestDto:
       type: object
       properties:
@@ -264,19 +277,6 @@ components:
         signDate:
           type: string
           format: date
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     StatusDto:
       type: object
       properties:
