@@ -1,0 +1,12 @@
+{
+ "url": "https://partner.upgrad.com/api-docs",
+ "requested_url": "https://partner.upgrad.com/api-docs",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 87757,
+ "sha256": "9bae4f0eb2d72b705d0d23d9afd9aba6a4bcf0b25f578609ab013c44c559cef0",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
