@@ -226,6 +226,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
     FetchFormConfigResponse:
       type: object
       properties:
@@ -240,19 +253,6 @@ components:
           type: string
         tabIconUrl:
           type: string
-    ErrorContext:
-      type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     DeleteFormConfigRequest:
       type: object
       properties:

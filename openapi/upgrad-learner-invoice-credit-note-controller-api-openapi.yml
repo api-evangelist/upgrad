@@ -93,44 +93,8 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ErrorContext:
+    Predicate:
       type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    Pageable:
-      type: object
-      properties:
-        page:
-          minimum: 0
-          type: integer
-          format: int32
-        size:
-          minimum: 1
-          type: integer
-          format: int32
-        sort:
-          type: array
-          items:
-            type: string
-    PageResponseLearnerInvoiceCreditNoteDto:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int64
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/LearnerInvoiceCreditNoteDto'
     LearnerInvoiceCreditNoteDto:
       type: object
       properties:
@@ -211,8 +175,44 @@ components:
         nsp:
           type: number
           format: double
-    Predicate:
+    Pageable:
       type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    PageResponseLearnerInvoiceCreditNoteDto:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int64
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/LearnerInvoiceCreditNoteDto'
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

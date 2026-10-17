@@ -506,19 +506,30 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ErrorContext:
+    PageResponsePartnerInvoiceCreditNoteReportDto:
       type: object
       properties:
-        errorCode:
-          type: string
-        messages:
+        total:
+          type: integer
+          format: int64
+        data:
           type: array
           items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
+            $ref: '#/components/schemas/PartnerInvoiceCreditNoteReportDto'
+    Predicate:
+      type: object
+    InvoiceStatusFlowDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        disposition:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
     Pageable:
       type: object
       properties:
@@ -534,16 +545,6 @@ components:
           type: array
           items:
             type: string
-    PageResponsePartnerInvoiceCreditNoteReportDto:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int64
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PartnerInvoiceCreditNoteReportDto'
     PartnerInvoiceCreditNoteDashboardDto:
       type: object
       properties:
@@ -556,25 +557,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PartnerInvoiceCreditNoteReportDto'
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
     UserUploadedEventTempUrlDto:
       type: object
       properties:
         tempUrl:
           type: string
-    InvoiceStatusFlowDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        disposition:
-          type: string
-        status:
-          type: string
-        type:
-          type: string
-    Predicate:
-      type: object
     PartnerInvoiceCreditNoteReportDto:
       type: object
       properties:

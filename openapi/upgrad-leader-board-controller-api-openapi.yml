@@ -158,16 +158,6 @@ components:
           type: string
         state:
           type: string
-    ErrorContext:
-      type: object
-      properties:
-        status:
-          type: integer
-          format: int32
-        messages:
-          type: array
-          items:
-            type: string
     StudentProfileDto:
       type: object
       properties:
@@ -184,6 +174,16 @@ components:
           type: string
         address:
           $ref: '#/components/schemas/AddressDto'
+    ErrorContext:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        messages:
+          type: array
+          items:
+            type: string
     LearnerReadingTimeStatsDto:
       type: object
       properties:

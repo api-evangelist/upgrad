@@ -517,114 +517,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    StatusDto:
+    DocumentResponse:
       type: object
       properties:
-        label:
-          type: string
-        id:
-          type: integer
-          format: int64
-        type:
-          type: string
-    CoPartnerDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        mobile:
-          type: string
-        type:
-          type: string
-    PageResponsePartnerDto:
-      type: object
-      properties:
-        total:
-          type: integer
-          format: int64
-        data:
+        coPartner:
+          $ref: '#/components/schemas/CoPartnerDto'
+        documents:
           type: array
           items:
-            $ref: '#/components/schemas/PartnerDto'
-    ErrorContext:
+            $ref: '#/components/schemas/DocumentDto'
+        status:
+          type: string
+    Predicate:
       type: object
-      properties:
-        errorCode:
-          type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
-    UpdateRmIdDto:
-      type: object
-      properties:
-        rmId:
-          type: integer
-          format: int64
-        partnerId:
-          type: array
-          items:
-            type: integer
-            format: int64
-    PartnerBaseDto:
-      required:
-      - email
-      - mobile
-      - postalCode
-      type: object
-      properties:
-        addressLine:
-          type: string
-        city:
-          type: string
-        state:
-          type: integer
-          format: int64
-        landmark:
-          type: string
-        postalCode:
-          type: integer
-          format: int32
-        invalidStatus:
-          type: boolean
-        stateName:
-          type: string
-        userId:
-          type: integer
-          format: int64
-        email:
-          type: string
-        fullName:
-          type: string
-        mobile:
-          maximum: 10
-          minimum: 0
-          type: integer
-          format: int64
-        businessName:
-          type: string
-        authorisedSignatory:
-          type: string
-        businessType:
-          type: string
-        partnershipType:
-          type: string
-          enum:
-          - CHANNEL_PARTNER
-          - FREELANCER
-          - FRANCHISE
-          - STUDY_ABROAD
-          - LC_PARTNER
-        sapCode:
-          pattern: ^[0-9]{10,11}$
-          type: string
     PartnerStatusSummary:
       type: object
       properties:
@@ -636,21 +541,16 @@ components:
           type: string
         dmsUploadId:
           type: string
-    Pageable:
+    StatusDto:
       type: object
       properties:
-        page:
-          minimum: 0
+        label:
+          type: string
+        id:
           type: integer
-          format: int32
-        size:
-          minimum: 1
-          type: integer
-          format: int32
-        sort:
-          type: array
-          items:
-            type: string
+          format: int64
+        type:
+          type: string
     DocumentDto:
       type: object
       properties:
@@ -673,40 +573,16 @@ components:
           type: string
         documentUrl:
           type: string
-    PartnerStageDto:
+    PageResponsePartnerDto:
       type: object
       properties:
-        id:
+        total:
           type: integer
           format: int64
-        type:
-          type: string
-        comment:
-          type: string
-        status:
-          $ref: '#/components/schemas/StatusDto'
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        signDate:
-          type: string
-          format: date
-    Predicate:
-      type: object
-    DocumentResponse:
-      type: object
-      properties:
-        coPartner:
-          $ref: '#/components/schemas/CoPartnerDto'
-        documents:
+        data:
           type: array
           items:
-            $ref: '#/components/schemas/DocumentDto'
-        status:
-          type: string
+            $ref: '#/components/schemas/PartnerDto'
     PartnerDto:
       required:
       - email
@@ -787,6 +663,130 @@ components:
         loggedRmId:
           type: integer
           format: int64
+    Pageable:
+      type: object
+      properties:
+        page:
+          minimum: 0
+          type: integer
+          format: int32
+        size:
+          minimum: 1
+          type: integer
+          format: int32
+        sort:
+          type: array
+          items:
+            type: string
+    UpdateRmIdDto:
+      type: object
+      properties:
+        rmId:
+          type: integer
+          format: int64
+        partnerId:
+          type: array
+          items:
+            type: integer
+            format: int64
+    PartnerBaseDto:
+      required:
+      - email
+      - mobile
+      - postalCode
+      type: object
+      properties:
+        addressLine:
+          type: string
+        city:
+          type: string
+        state:
+          type: integer
+          format: int64
+        landmark:
+          type: string
+        postalCode:
+          type: integer
+          format: int32
+        invalidStatus:
+          type: boolean
+        stateName:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        email:
+          type: string
+        fullName:
+          type: string
+        mobile:
+          maximum: 10
+          minimum: 0
+          type: integer
+          format: int64
+        businessName:
+          type: string
+        authorisedSignatory:
+          type: string
+        businessType:
+          type: string
+        partnershipType:
+          type: string
+          enum:
+          - CHANNEL_PARTNER
+          - FREELANCER
+          - FRANCHISE
+          - STUDY_ABROAD
+          - LC_PARTNER
+        sapCode:
+          pattern: ^[0-9]{10,11}$
+          type: string
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    CoPartnerDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        mobile:
+          type: string
+        type:
+          type: string
+    PartnerStageDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+        comment:
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusDto'
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        signDate:
+          type: string
+          format: date
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey

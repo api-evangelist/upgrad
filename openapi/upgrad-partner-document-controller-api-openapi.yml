@@ -330,22 +330,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DMSUploadResponse:
+    DocumentResponse:
       type: object
       properties:
-        id:
-          type: string
-    CoPartnerDto:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        mobile:
-          type: string
-        type:
+        coPartner:
+          $ref: '#/components/schemas/CoPartnerDto'
+        documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentDto'
+        status:
           type: string
     DocumentVerifyRequest:
       type: object
@@ -356,19 +350,11 @@ components:
           type: boolean
         comments:
           type: string
-    ErrorContext:
+    DMSUploadResponse:
       type: object
       properties:
-        errorCode:
+        id:
           type: string
-        messages:
-          type: array
-          items:
-            type: string
-        data:
-          type: object
-          additionalProperties:
-            type: object
     DocumentDto:
       type: object
       properties:
@@ -391,17 +377,31 @@ components:
           type: string
         documentUrl:
           type: string
-    DocumentResponse:
+    CoPartnerDto:
       type: object
       properties:
-        coPartner:
-          $ref: '#/components/schemas/CoPartnerDto'
-        documents:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        mobile:
+          type: string
+        type:
+          type: string
+    ErrorContext:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        messages:
           type: array
           items:
-            $ref: '#/components/schemas/DocumentDto'
-        status:
-          type: string
+            type: string
+        data:
+          type: object
+          additionalProperties:
+            type: object
   securitySchemes:
     AUTH-TOKEN:
       type: apiKey
