@@ -64,5 +64,133 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-upGrad is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/upgrad-stock
+upGrad is an online higher-education and workforce-upskilling platform headquartered in Mumbai, India, founded in 2015 by Ronnie Screwvala, Mayank Kumar and Phalgun Kompalli. It delivers degrees, executive certifications, bootcamps and doctoral programmes in partnership with global universities including Liverpool John Moores University, Golden Gate University, O.P. Jindal Global University, IIIT Bangalore, IIM Kozhikode and IIT Kharagpur, alongside a study-abroad advisory business covering the USA, UK, Canada, Australia, Germany and Ireland. Its public API surface is not a marketed developer programme: it is a large internal microservice estate on upgrad.com subdomains, of which two Spring Boot services publish their springdoc OpenAPI 3.0.1 documents anonymously at /api-docs — a Partner Service covering channel-partner onboarding, prospects, stores, team hierarchy, commission rules and partner invoicing/credit notes, and a Learner Experience Analytics service covering reading-time leaderboards and micro-interaction notifications.
+
+**Areas:** Education · EdTech · E-Learning · Higher Education · Certification · Learning Analytics · Partner Management · India
+
+## upGrad on APIs.io
+
+Everything profiled for upGrad is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/upgrad/](https://apis.io/providers/upgrad/)** — or go straight to one of the APIs or properties below.
+
+### APIs (18)
+
+- [upGrad Admin Controller API](https://apis.io/apis/upgrad/upgrad-admin-controller-api/) — The admin-controller API from upGrad — 2 operation(s) for admin-controller.
+- [upGrad Business Type Controller API](https://apis.io/apis/upgrad/upgrad-business-type-controller-api/) — The business-type-controller API from upGrad — 2 operation(s) for business-type-controller.
+- [upGrad Commission Rule Controller API](https://apis.io/apis/upgrad/upgrad-commission-rule-controller-api/) — The commission-rule-controller API from upGrad — 2 operation(s) for commission-rule-controller.
+- [upGrad Form Config Controller API](https://apis.io/apis/upgrad/upgrad-form-config-controller-api/) — The form-config-controller API from upGrad — 3 operation(s) for form-config-controller.
+- [upGrad Leader Board Controller API](https://apis.io/apis/upgrad/upgrad-leader-board-controller-api/) — The leader-board-controller API from upGrad — 2 operation(s) for leader-board-controller.
+- [upGrad Learner Invoice Credit Note Controller API](https://apis.io/apis/upgrad/upgrad-learner-invoice-credit-note-controller-api/) — The learner-invoice-credit-note-controller API from upGrad — 1 operation(s) for learner-invoice-credit-note-controller.
+- [upGrad Login List Controller API](https://apis.io/apis/upgrad/upgrad-login-list-controller-api/) — The login-list-controller API from upGrad — 2 operation(s) for login-list-controller.
+- [upGrad Login List Upload Controller API](https://apis.io/apis/upgrad/upgrad-login-list-upload-controller-api/) — The login-list-upload-controller API from upGrad — 1 operation(s) for login-list-upload-controller.
+- [upGrad Master Data Controller API](https://apis.io/apis/upgrad/upgrad-master-data-controller-api/) — The master-data-controller API from upGrad — 1 operation(s) for master-data-controller.
+- [upGrad Micro Interaction Notification Controller API](https://apis.io/apis/upgrad/upgrad-micro-interaction-notification-controller-api/) — The micro-interaction-notification-controller API from upGrad — 2 operation(s) for micro-interaction-notification-controller.
+- [upGrad Partner Controller API](https://apis.io/apis/upgrad/upgrad-partner-controller-api/) — The partner-controller API from upGrad — 6 operation(s) for partner-controller.
+- [upGrad Partner Document Controller API](https://apis.io/apis/upgrad/upgrad-partner-document-controller-api/) — The partner-document-controller API from upGrad — 4 operation(s) for partner-document-controller.
+- [upGrad Partner Invoice Credit Note Controller API](https://apis.io/apis/upgrad/upgrad-partner-invoice-credit-note-controller-api/) — The partner-invoice-credit-note-controller API from upGrad — 6 operation(s) for partner-invoice-credit-note-controller.
+- [upGrad Program Key Cache Controller API](https://apis.io/apis/upgrad/upgrad-program-key-cache-controller-api/) — The program-key-cache-controller API from upGrad — 2 operation(s) for program-key-cache-controller.
+- [upGrad Prospect Controller API](https://apis.io/apis/upgrad/upgrad-prospect-controller-api/) — The prospect-controller API from upGrad — 3 operation(s) for prospect-controller.
+- [upGrad Status Controller API](https://apis.io/apis/upgrad/upgrad-status-controller-api/) — The status-controller API from upGrad — 3 operation(s) for status-controller.
+- [upGrad Store Controller API](https://apis.io/apis/upgrad/upgrad-store-controller-api/) — The store-controller API from upGrad — 2 operation(s) for store-controller.
+- [upGrad Team Member Controller API](https://apis.io/apis/upgrad/upgrad-team-member-controller-api/) — The team-member-controller API from upGrad — 6 operation(s) for team-member-controller.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [upgrad](https://apis.io/servers/upgrad/upgrad/)
+
+#### Overlays (2)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Upgrad Learner Analytics Overlay](https://apis.io/overlays/upgrad/upgrad-learner-analytics-overlay/)
+- [Upgrad Partner Overlay](https://apis.io/overlays/upgrad/upgrad-partner-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Upgrad Authentication](https://apis.io/security/upgrad/upgrad-authentication/)
+- [Upgrad Domain Security](https://apis.io/security/upgrad/upgrad-domain-security/)
+- [Upgrad Vulnerability Disclosure](https://apis.io/security/upgrad/upgrad-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Upgrad Plans Pricing](https://apis.io/plans/upgrad/upgrad-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Upgrad Rate Limits](https://apis.io/rate-limits/upgrad/upgrad-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.upgrad.com/)
+- [Support](https://www.upgrad.com/us/contact/)
+- [Blog](https://www.upgrad.com/blog/)
+- [Terms of service](https://www.upgrad.com/us/terms/)
+- [Privacy policy](https://www.upgrad.com/us/privacy/)
+- [GitHub](https://github.com/upgrad)
+- [Status](https://status.upgrad.com/)
+
+## API Evangelist rating
+
+**Kin Score 32.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 46.1 |
+| Contract governance | 4.5 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 20.8 |
+| Access clarity | 27.6 |
+
+**Agent readiness 22.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/upgrad/](https://apis.io/providers/upgrad/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for upGrad: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/upgrad/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
